@@ -14,7 +14,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 
-import cn.seu.edu.complexityevaluator.mainui.ComplexityCompsite;
+//import cn.seu.edu.complexityevaluator.mainui.ComplexityCompsite;
 import cn.seu.edu.integrabilityevaluator.ui.IntegrationComposite;
 
 
@@ -105,7 +105,7 @@ public class MainUI  {
 				if(event.widget == intergrationMenu){
 					sl.topControl = new IntegrationComposite(composite, SWT.NONE);
 				}else if (event.widget == codeComplexityItem) {					
-					sl.topControl = new ComplexityCompsite(composite, SWT.NONE);
+				//	sl.topControl = new ComplexityCompsite(composite, SWT.NONE);
 				}
 				
 				composite.layout();

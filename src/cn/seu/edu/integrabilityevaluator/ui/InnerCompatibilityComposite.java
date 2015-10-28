@@ -55,13 +55,13 @@ public class InnerCompatibilityComposite extends Composite {
 	public InnerCompatibilityComposite(Composite parent, int style) {
 		super(parent, style);
 		
-		Label label = new Label(this, SWT.NONE);
-		label.setBounds(10, 13, 103, 17);
-		label.setText("\u9879\u76EE\u8DEF\u5F84\uFF1A");
+		Label lblProjectPath = new Label(this, SWT.NONE);
+		lblProjectPath.setBounds(10, 13, 103, 17);
+		lblProjectPath.setText("Project path:");
 		
-		Label label_1 = new Label(this, SWT.NONE);
-		label_1.setText("\u9879\u76EE\u4E2D\u5305\u8DEF\u5F84\uFF1A");
-		label_1.setBounds(10, 62, 103, 17);
+		Label lblPackagePathOf = new Label(this, SWT.NONE);
+		lblPackagePathOf.setText("Package path of project:");
+		lblPackagePathOf.setBounds(10, 62, 153, 17);
 		
 		pathOfProjectText = new Text(this, SWT.BORDER);
 		pathOfProjectText.setBounds(119, 10, 375, 22);
@@ -86,13 +86,13 @@ public class InnerCompatibilityComposite extends Composite {
 			
 		});
 		btnNewButton.setBounds(500, 10, 53, 22);
-		btnNewButton.setText("\u8DEF\u5F84...");
+		btnNewButton.setText("Path...");
 		
 		componentOfProjectText = new Text(this, SWT.BORDER);
-		componentOfProjectText.setBounds(119, 57, 375, 22);
+		componentOfProjectText.setBounds(180, 57, 314, 22);
 		
-		Button button = new Button(this, SWT.NONE);
-		button.addSelectionListener(new SelectionAdapter() {
+		Button btnPath = new Button(this, SWT.NONE);
+		btnPath.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				
@@ -108,8 +108,8 @@ public class InnerCompatibilityComposite extends Composite {
 				
 			}
 		});
-		button.setBounds(500, 57, 53, 22);
-		button.setText("\u8DEF\u5F84...");
+		btnPath.setBounds(500, 57, 53, 22);
+		btnPath.setText("Path...");
 		
 		uncompatibilityTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
 		uncompatibilityTable.setBounds(10, 120, 711, 406);
@@ -175,7 +175,7 @@ public class InnerCompatibilityComposite extends Composite {
 		});
 		
 		CompatibilityBtn.setBounds(583, 10, 79, 69);
-		CompatibilityBtn.setText("\u5206\u6790");
+		CompatibilityBtn.setText("Analysis");
 		
 		ResultText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
 		ResultText.setBounds(10, 91, 200, 23);

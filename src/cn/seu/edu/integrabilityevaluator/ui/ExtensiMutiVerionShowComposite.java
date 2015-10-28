@@ -54,7 +54,7 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		
 		Label lblNull = new Label(this, SWT.NONE);
 		lblNull.setBounds(21, 10, 61, 17);
-		lblNull.setText("\u9009\u62E9\u9879\u76EE\uFF1A");
+		lblNull.setText("Project:");
 	
 		projectSelectCombo.setBounds(102, 7, 98, 25);
 			
@@ -65,11 +65,11 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		
 		final CTabItem extenTabItem = new CTabItem(tabFolder, SWT.NONE);
-		extenTabItem.setText("\u53EF\u6269\u5C55\u6027\u8D8B\u52BF\u56FE");
-		
+		//extenTabItem.setText("\u53EF\u6269\u5C55\u6027\u8D8B\u52BF\u56FE");
+		extenTabItem.setText("Extensibility tendency chart");
 		final CTabItem extenDiffTabItem = new CTabItem(tabFolder, SWT.NONE);
-		extenDiffTabItem.setText("\u7248\u672C\u53D8\u66F4\u8BE6\u7EC6\u4FE1\u606F");
-		
+		//extenDiffTabItem.setText("\u7248\u672C\u53D8\u66F4\u8BE6\u7EC6\u4FE1\u606F");
+		extenDiffTabItem.setText("Detailed information about version changes");
 		final Combo version1Combo = new Combo(this, SWT.NONE);
 		version1Combo.setBounds(278, 7, 88, 25);
 		
@@ -78,19 +78,22 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		
 		Label label = new Label(this, SWT.NONE);
 		label.setBounds(215, 15, 61, 17);
-		label.setText("\u7248\u672C1\uFF1A");
+		//label.setText("\u7248\u672C1\uFF1A");
+		label.setText("Version1:");
 		
 		Label label_1 = new Label(this, SWT.NONE);
-		label_1.setText("\u7248\u672C2\uFF1A");
+		//label_1.setText("\u7248\u672C2\uFF1A");
+		label_1.setText("Version2:");
 		label_1.setBounds(368, 15, 61, 17);
 		
 		
 		
 		
 		final Button projRadioButton = new Button(this, SWT.RADIO);
+		projRadioButton.setText("System level");
 		projRadioButton.setSelection(false);
-		projRadioButton.setBounds(536, 15, 69, 17);
-		projRadioButton.setText("\u7CFB\u7EDF\u5C42");
+		projRadioButton.setBounds(540, 7, 98, 17);
+		//projRadioButton.setText("\u7CFB\u7EDF\u5C42");
 		
 		final Button pkgRadioButton = new Button(this, SWT.RADIO);
 		
@@ -124,8 +127,8 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 				
 			}
 		});
-		pkgRadioButton.setBounds(607, 15, 61, 17);
-		pkgRadioButton.setText("\u5305\u5C42");
+		pkgRadioButton.setBounds(540, 30, 98, 17);
+		pkgRadioButton.setText("Package level");
 		
 		projRadioButton.addSelectionListener(new SelectionAdapter() {
 			@Override

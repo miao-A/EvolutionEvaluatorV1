@@ -41,7 +41,7 @@ public class ExtensibilityComposite extends Composite {
 		extensibilityTable.setHeaderVisible(true);
 		extensibilityTable.setLinesVisible(true);
 		
-		String[] tableHeader = {"PackageName","concereteClass", "abstractClass","interfaceClass","totalClass","ratio %"};
+		String[] tableHeader = {"Package name","Concerete classes", "Abstract classes","Interface classes"," Total classes","Ratio"};
 		
 		for (int i = 0; i < tableHeader.length; i++)  
 	    {  

@@ -49,7 +49,7 @@ public class IntegrationComposite extends Composite {
 			fl_leftComposite.marginHeight = 10;
 			leftComposite.setLayout(fl_leftComposite);
 			GridData gd_leftComposite = new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1);
-			gd_leftComposite.widthHint = 152;
+			gd_leftComposite.widthHint = 185;
 			gd_leftComposite.heightHint = 597;
 			leftComposite.setLayoutData(gd_leftComposite);
 			
