@@ -1,11 +1,10 @@
 ﻿package cn.seu.edu.integrabilityevaluator.ui;
 
-import java.io.IOException;
-
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -14,15 +13,14 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.custom.StackLayout;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.layout.GridData;
 
 public class IntegrationComposite extends Composite {
 	
+	protected Object result;
+	protected Shell shlCiet;
 	
 	private StackLayout rightCompositeSL = new StackLayout();
 	private SubstitutabilityComposite changeabilityComposite;
@@ -33,14 +31,64 @@ public class IntegrationComposite extends Composite {
 	private SubstitutabilityMutiVersionShowComposite changeMutiVersionShowComposite;
 	private CompatibilityMutiVersionComposite compatibilityMutiVersionComposite;
 	/**
-	 * Create the composite.
-	 * @param parent
-	 * @param style
-	 */
+	* Auto-generated main method to display this 
+	* org.eclipse.swt.widgets.Composite inside a new Shell.
+	*/
+	public static void main(String[] args) {
+		showGUI();
+	}
+	
+	/**
+	* Overriding checkSubclass allows this class to extend org.eclipse.swt.widgets.Composite
+	*/	
+	protected void checkSubclass() {
+	}
+	
+	/**
+	* Auto-generated method to display this 
+	* org.eclipse.swt.widgets.Composite inside a new Shell.
+	*/
+	public static void showGUI() {
+		Display display = Display.getDefault();
+		Shell shell = new Shell(display);
+		IntegrationComposite inst = new IntegrationComposite(shell, SWT.NULL);
+		Point size = inst.getSize();
+		shell.setLayout(new FillLayout());
+		shell.layout();
+		if(size.x == 0 && size.y == 0) {
+			inst.pack();
+			shell.pack();
+		} else {
+			Rectangle shellBounds = shell.computeTrim(0, 0, size.x, size.y);
+			shell.setSize(shellBounds.width, shellBounds.height);
+		}
+		shell.open();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch())
+				display.sleep();
+		}
+	}
+
 	public IntegrationComposite(Composite parent, int style) {
 		super(parent, style);
-		
+	
 		try {
+			/*FormLayout thisLayout = new FormLayout();
+			this.setLayout(thisLayout);
+			this.layout();			
+		
+			Composite composite = new Composite(parent, SWT.NONE);
+			composite.setLayout(new FormLayout());
+							
+			Composite leftComposite = new Composite(composite, SWT.NONE);
+			FormData fd_leftComposite = new FormData();
+			fd_leftComposite.left = new FormAttachment(0, 5);
+			fd_leftComposite.bottom = new FormAttachment(100, -108);
+			fd_leftComposite.top = new FormAttachment(0, 5);
+			leftComposite.setLayoutData(fd_leftComposite);
+			leftComposite.setLayout(new FillLayout(SWT.VERTICAL));*/
+			
+			
 			setLayout(new GridLayout(2, false));					
 			Composite leftComposite = new Composite(this, SWT.NONE);
 			FillLayout fl_leftComposite = new FillLayout(SWT.VERTICAL);
@@ -60,9 +108,20 @@ public class IntegrationComposite extends Composite {
 			rightComposite.setLayoutData(gd_rightComposite);
 			
 			Composite composite = new Composite(parent, SWT.NONE);
-			composite.setLayout(new GridLayout());							
-						
-Button projectInfoButton = new Button(leftComposite, SWT.NONE);
+			composite.setLayout(new GridLayout());
+			
+				
+			/*final Composite rightComposite = new Composite(composite, SWT.NONE);
+			fd_leftComposite.right = new FormAttachment(100, -734);
+			FormData fd_rightComposite = new FormData();
+			fd_rightComposite.left = new FormAttachment(leftComposite, 30);
+			fd_rightComposite.right = new FormAttachment(100);
+			fd_rightComposite.top = new FormAttachment(0, 10);
+			fd_rightComposite.bottom = new FormAttachment(100, -28);
+			rightComposite.setLayoutData(fd_rightComposite);
+			rightComposite.setLayout(rightCompositeSL);*/
+			
+			Button projectInfoButton = new Button(leftComposite, SWT.NONE);
 			
 			projectInfoButton.addSelectionListener(new SelectionAdapter() {
 				@Override
@@ -152,16 +211,9 @@ Button projectInfoButton = new Button(leftComposite, SWT.NONE);
 			compatibilityMutiVersionComposite = new CompatibilityMutiVersionComposite(rightComposite, SWT.NONE);
 			rightCompositeSL.topControl = projectInfoComposite;
 		
-		} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
-		
 	}
 
-	@Override
-	protected void checkSubclass() {
-		// Disable the check that prevents subclassing of SWT components
-	}
 }

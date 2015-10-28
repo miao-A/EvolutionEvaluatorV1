@@ -1,4 +1,4 @@
-﻿/*package cn.seu.edu.integrabilityevaluator.parser;
+﻿package cn.seu.edu.integrabilityevaluator.parser;
 
 
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.ASTParser;
 
 import cn.seu.edu.integrabilityevaluator.astvisitor.ChangeabilityOfClassRequestor;
-import cn.seu.edu.integrabilityevaluator.dbconnect.SubstitutabilityInfoConnector;
+import cn.seu.edu.integrabilityevaluator.dbconnect.ChangeabilityInfoConnector;
 
 
 public class Substitutability {
@@ -37,11 +37,11 @@ public class Substitutability {
 		}
 		
 		
-		SubstitutabilityInfoConnector dbConnector = new SubstitutabilityInfoConnector(projectNameString,versionString);
+		ChangeabilityInfoConnector dbConnector = new ChangeabilityInfoConnector(projectNameString,versionString);
 		ArrayList<String> packageNameList= dbConnector.getpackageName();
 			// 添加三行数据  		        
 	    for (String string : packageNameList) {
-	    	dbConnector.setSubtitutabilityInfo(string);
+	    	dbConnector.setChangeabilityInfo(string);
 		}
 	}
 	
@@ -52,4 +52,3 @@ public class Substitutability {
 	
 	
 }
-*/

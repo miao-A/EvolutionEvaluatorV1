@@ -32,12 +32,14 @@ public class ProjectInfoComposite extends Composite {
 	public ProjectInfoComposite(Composite parent, int style) {
 		super(parent, style);
 		
-		Label label = new Label(this, SWT.NONE);
-		label.setBounds(105, 37, 61, 17);
-		label.setText("\u9879\u76EE\u8DEF\u5F84\uFF1A");
+		Label lblProjectInformation = new Label(this, SWT.NONE);
+		lblProjectInformation.setAlignment(SWT.CENTER);
+		lblProjectInformation.setText("Project path:");
+		lblProjectInformation.setBounds(10, 36, 121, 17);
+		//label.setText("\u9879\u76EE\u8DEF\u5F84\uFF1A");
 		
 		projectPathText = new Text(this, SWT.BORDER);
-		projectPathText.setBounds(172, 34, 277, 23);
+		projectPathText.setBounds(137, 33, 277, 23);
 		
 		Button fileReadBtn = new Button(this, SWT.NONE);
 		fileReadBtn.addSelectionListener(new SelectionAdapter() {
@@ -48,7 +50,8 @@ public class ProjectInfoComposite extends Composite {
 				Shell shell = new Shell(display);
 				DirectoryDialog folderDialog = new DirectoryDialog(shell);
 				
-				folderDialog.setText("请选择项目文件");	
+				//folderDialog.setText("请选择项目文件");
+				folderDialog.setText("Select project file");
 				folderDialog.setFilterPath("D:/ProjectEOfHW/jEditor/jEditor0.2");
 				folderDialog.open();
 				
@@ -56,29 +59,33 @@ public class ProjectInfoComposite extends Composite {
 				
 			}
 		});
-		fileReadBtn.setBounds(455, 32, 80, 27);
-		fileReadBtn.setText("\u9879\u76EE...");
+		fileReadBtn.setBounds(426, 31, 80, 27);
+		//fileReadBtn.setText("\u9879\u76EE...");
+		fileReadBtn.setText("Project...");
 		
 		Label label_1 = new Label(this, SWT.NONE);
-		label_1.setBounds(105, 90, 61, 17);
-		label_1.setText("\u9879\u76EE\u540D\u79F0\uFF1A");
+		label_1.setBounds(10, 89, 121, 17);
+		//label_1.setText("\u9879\u76EE\u540D\u79F0\uFF1A");
+		label_1.setText("Project name:");
 		
 		projectNameText = new Text(this, SWT.BORDER);
-		projectNameText.setBounds(172, 87, 153, 23);
+		projectNameText.setBounds(137, 86, 153, 23);
 		
 		versionText = new Text(this, SWT.BORDER);
-		versionText.setBounds(172, 140, 153, 23);
+		versionText.setBounds(137, 139, 153, 23);
 		
 		Label label_2 = new Label(this, SWT.NONE);
-		label_2.setBounds(105, 143, 61, 17);
-		label_2.setText("\u9879\u76EE\u7248\u672C\uFF1A");
+		label_2.setBounds(10, 142, 121, 17);
+		//label_2.setText("\u9879\u76EE\u7248\u672C\uFF1A");
+		label_2.setText("Project version:");
 		
 		Label lblNewLabel = new Label(this, SWT.NONE);
-		lblNewLabel.setBounds(105, 196, 61, 17);
-		lblNewLabel.setText("\u7248\u672C\u4FE1\u606F\uFF1A");
+		lblNewLabel.setBounds(10, 195, 121, 17);
+		//lblNewLabel.setText("\u7248\u672C\u4FE1\u606F\uFF1A");
+		lblNewLabel.setText("Project information:");
 		
 		versionInfoText = new Text(this, SWT.BORDER);
-		versionInfoText.setBounds(172, 193, 277, 49);
+		versionInfoText.setBounds(137, 192, 277, 49);
 		
 		Button button = new Button(this, SWT.NONE);
 		button.addSelectionListener(new SelectionAdapter() {
@@ -88,7 +95,8 @@ public class ProjectInfoComposite extends Composite {
 					MessageDialog dialog = new MessageDialog(Display.getCurrent().getActiveShell(),//shell窗口
 							"WARNNING",
 							null,
-							"请输入项目路径信息",
+							//"请输入项目路径信息",
+							"Please input project path information",
 							MessageDialog.WARNING,
 							new String[]{"OK"},
 							1);
@@ -97,7 +105,8 @@ public class ProjectInfoComposite extends Composite {
 					MessageDialog dialog = new MessageDialog(Display.getCurrent().getActiveShell(),//shell窗口
 							"WARNNING",
 							null,
-							"请输入项目名称与版本信息",
+							"Please input project path and version information ",
+							//"请输入项目名称与版本信息",
 							MessageDialog.WARNING,
 							new String[]{"OK"},
 							1);
@@ -120,8 +129,9 @@ public class ProjectInfoComposite extends Composite {
 				}			
 			}
 		});
-		button.setBounds(263, 257, 80, 27);
-		button.setText("\u5206\u6790");
+		button.setBounds(244, 259, 80, 27);
+		//button.setText("\u5206\u6790");
+		button.setText("Analysis");
 
 	}
 

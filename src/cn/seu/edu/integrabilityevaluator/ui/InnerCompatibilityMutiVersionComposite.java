@@ -57,9 +57,9 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 	public InnerCompatibilityMutiVersionComposite(Composite parent, int style) {
 		super(parent, style);
 		
-		Label label = new Label(this, SWT.NONE);
-		label.setBounds(10, 13, 103, 17);
-		label.setText("\u9879\u76EE\u8DEF\u5F841\uFF1A");
+		Label lblProjectPath = new Label(this, SWT.NONE);
+		lblProjectPath.setBounds(10, 13, 103, 17);
+		lblProjectPath.setText("Project path1:");
 		
 		pathOfOldProjectText = new Text(this, SWT.BORDER);
 		pathOfOldProjectText.setBounds(119, 10, 375, 22);
@@ -73,7 +73,8 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 				Shell shell = new Shell(display);
 				DirectoryDialog folderDialog = new DirectoryDialog(shell);
 				
-				folderDialog.setText("请选择项目文件");	
+				//folderDialog.setText("请选择项目文件");	
+				folderDialog.setText("Please select project file");
 				folderDialog.setFilterPath("D:/ProjectOfHW/junit/junit3.4");//"D:/ProjectOfHW/junit/junit3.4"
 				folderDialog.open();
 				
@@ -84,7 +85,7 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 			
 		});
 		btnNewButton.setBounds(500, 10, 53, 22);
-		btnNewButton.setText("\u8DEF\u5F84...");
+		btnNewButton.setText("Path...");
 		
 		uncompatibilityTableOne = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
 		uncompatibilityTableOne.setBounds(10, 105, 711, 166);
@@ -101,7 +102,9 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
 		
-		String[] tableHeader = {"        包名.类名        ", "       不兼容方法所在类        ","        不兼容方法名        ","    应使用类型    ","       实际使用类型         "};		
+		//String[] tableHeader = {"        包名.类名        ", "       不兼容方法所在类        ","        不兼容方法名        ","    应使用类型    ","       实际使用类型         "};		
+		String[] tableHeader = {"        Package.Class         ", "       Incompatible classes        ","        Incompatible methods        ","    required signature    ","       Actually use signature         "};	
+
 		for (int i = 0; i < tableHeader.length; i++)  
 	    {  					
 			TableColumn tableColumn = new TableColumn(uncompatibilityTableOne, SWT.NONE);
@@ -138,12 +141,14 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 
 				if (oldUnCompatibilityMIModels.size() == 0) {
 					//System.out.println("版本1内部兼容性良好");
-					ResultOneText.setText("版本1内部兼容性良好");
+					//ResultOneText.setText("版本1内部兼容性良好");
+					ResultOneText.setText("Version1 has good inner compatibility");
 				}
 				
 				if (newUnCompatibilityMIModels.size() == 0) {
 					//System.out.println("版本2内部兼容性良好");
-					ResultTwoText.setText("版本2内部兼容性良好");
+					//ResultTwoText.setText("版本2内部兼容性良好");
+					ResultTwoText.setText("Version2 has good inner compatibility");
 				}
 				
 				for (UnCompatibilityMIModel unCompatibilityMIModel : oldUnCompatibilityMIModels) {
@@ -160,11 +165,12 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 				if (oldUnCompatibilityMIModels.size()>0) {
 					//TableItem lastItem = new TableItem(uncompatibilityTableOne, SWT.NONE);
 					//lastItem.setText(new String[] {"版本1不兼容的接口个数:",String.valueOf(oldUnCompatibilityMIModels.size())});
-					ResultOneText.setText("版本1不兼容的类型个数:"+String.valueOf(oldUnCompatibilityMIModels.size()));
+					//ResultOneText.setText("版本1不兼容的类型个数:"+String.valueOf(oldUnCompatibilityMIModels.size()));
+					ResultOneText.setText("Number of incompatible methods in version1:"+String.valueOf(oldUnCompatibilityMIModels.size()));
 				}else {
 					//TableItem lastItem = new TableItem(uncompatibilityTableOne, SWT.NONE);
 					//lastItem.setText(new String[] {"版本1程序内部兼容性良好"});
-					ResultOneText.setText("版本1内部兼容性良好");
+					ResultOneText.setText("Version1 has good inner compatibility");
 				}
 				
 				for (UnCompatibilityMIModel unCompatibilityMIModel : newUnCompatibilityMIModels) {
@@ -180,43 +186,45 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 				if (newUnCompatibilityMIModels.size()>0) {
 					//TableItem lastItem = new TableItem(uncompatibilityTableOne, SWT.NONE);
 					//lastItem.setText(new String[] {"版本2不兼容的接口个数:",String.valueOf(newUnCompatibilityMIModels.size())});
-					ResultTwoText.setText("版本2不兼容的类型个数:"+String.valueOf(newUnCompatibilityMIModels.size()));
+					//ResultTwoText.setText("版本2不兼容的类型个数:"+String.valueOf(newUnCompatibilityMIModels.size()));
+					ResultTwoText.setText("Number of incompatible methods in version2:"+String.valueOf(newUnCompatibilityMIModels.size()));
 				}else {
 					//TableItem lastItem = new TableItem(uncompatibilityTableOne, SWT.NONE);
 					//lastItem.setText(new String[] {"版本2程序内部兼容性良好"});
-					ResultTwoText.setText("版本2内部兼容性良好");
+					ResultTwoText.setText("Version2 has good inner compatibility");
 				}
 				
 			}
 		});
 		
 		CompatibilityBtn.setBounds(583, 10, 79, 69);
-		CompatibilityBtn.setText("\u5206\u6790");
+		CompatibilityBtn.setText("Analysis");
 		
-		Label label_2 = new Label(this, SWT.NONE);
-		label_2.setText("\u9879\u76EE\u8DEF\u5F842\uFF1A");
-		label_2.setBounds(10, 51, 103, 17);
+		Label lblProjectPath_1 = new Label(this, SWT.NONE);
+		lblProjectPath_1.setText("Project path2:");
+		lblProjectPath_1.setBounds(10, 51, 103, 17);
 		
 		pathOfNewProjectText = new Text(this, SWT.BORDER);
 		pathOfNewProjectText.setBounds(119, 48, 375, 22);
 		
-		Button button_1 = new Button(this, SWT.NONE);
-		button_1.addSelectionListener(new SelectionAdapter() {
+		Button btnPath = new Button(this, SWT.NONE);
+		btnPath.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Display display = Display.getDefault();
 				Shell shell = new Shell(display);
 				DirectoryDialog folderDialog = new DirectoryDialog(shell);
 				
-				folderDialog.setText("请选择项目文件");	
+				//folderDialog.setText("请选择项目文件");
+				folderDialog.setText("Please select project file");
 				folderDialog.setFilterPath("D:/ProjectOfHW/jEditor/jEditor0.3");//"D:/ProjectOfHW/junit/junit3.4"
 				folderDialog.open();
 				
 				pathOfNewProjectText.setText(folderDialog.getFilterPath());
 			}
 		});
-		button_1.setText("\u8DEF\u5F84...");
-		button_1.setBounds(500, 48, 53, 22);
+		btnPath.setText("Path...");
+		btnPath.setBounds(500, 48, 53, 22);
 		
 		
 		

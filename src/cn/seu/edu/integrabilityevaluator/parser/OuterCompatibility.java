@@ -9,9 +9,11 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 
+import cn.seu.edu.integrabilityevaluator.astvisitor.ChangeabilityOfClassRequestor;
 import cn.seu.edu.integrabilityevaluator.astvisitor.InnerCompatibilityRequestor;
 import cn.seu.edu.integrabilityevaluator.astvisitor.JavaVersionCompatibilityRequestor;
 import cn.seu.edu.integrabilityevaluator.astvisitor.OuterCompatibilityRequestor;
+import cn.seu.edu.integrabilityevaluator.dbconnect.ChangeabilityInfoConnector;
 import cn.seu.edu.integrabilityevaluator.model.AbstractClassModel;
 import cn.seu.edu.integrabilityevaluator.model.JarClassModel;
 import cn.seu.edu.integrabilityevaluator.model.UnCompatibilityMIModel;

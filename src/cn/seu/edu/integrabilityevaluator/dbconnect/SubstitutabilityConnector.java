@@ -267,58 +267,6 @@ public class SubstitutabilityConnector extends DBConnector{
 		return rStrings;
 	}
 */
-		
-		public ArrayList<String> class_packageEffernetCouplingslist(String packageName){
-
-			ArrayList<String> rStrings = new ArrayList<String>();
-			
-			try {
-				ResultSet rs;
-				Statement stmt = connect.createStatement();
-				String cestr = "Select   distinct importpkgName, importClassName  FROM " + dBname + ".t_classcouplinginfo where pkgname != importpkgname and pkgName = '"
-						+ packageName
-						+ "' and verID = '"
-						+ version
-						+ "' and projName = '" + projectName + "'";
-				rs = stmt.executeQuery(cestr);
-				while (rs.next()) {
-					String str = rs.getString("importpkgName");
-					str += "." +  rs.getString("importclassname");
-					rStrings.add(str);
-				}
-				
-			} catch (Exception e) {
-				// TODO: handle exception
-				System.out.println("failed to run substitutability class_package query!");
-			}		
-			return rStrings;
-		}
-		
-		public ArrayList<String> class_packageAffernetCouplingslist(String packageName){
-
-			ArrayList<String> rStrings = new ArrayList<String>();
-			
-			try {
-				ResultSet rs;
-				Statement stmt = connect.createStatement();
-				String castr = "Select  distinct pkgName, className FROM " + dBname + ".t_classcouplinginfo where pkgname != importpkgname and importPkgName = '"
-						+ packageName
-						+ "' and verID = '"
-						+ version
-						+ "' and projName = '" + projectName + "'";
-				rs = stmt.executeQuery(castr);
-				while (rs.next()) {
-					String str = rs.getString("pkgname");
-					str += "." + rs.getString("classname");
-					rStrings.add(str);
-				}
-				
-			} catch (Exception e) {
-				// TODO: handle exception
-				System.out.println("failed to run substitutability class_package query!");
-			}		
-			return rStrings;
-		}
 	
 	//*******************类耦合关系获取方法*********************************//
 	public ArrayList<String> getClassName(){

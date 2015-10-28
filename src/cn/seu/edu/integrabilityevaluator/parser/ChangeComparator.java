@@ -1,9 +1,8 @@
-﻿/*package cn.seu.edu.integrabilityevaluator.parser;
+﻿package cn.seu.edu.integrabilityevaluator.parser;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
 
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
@@ -217,9 +216,9 @@ public class ChangeComparator {
 				}
 			}
 			
-			System.out.println("ImportPackages num:"+atm.getOldTypeModel().getImportPackages().size());
+			/*System.out.println("ImportPackages num:"+atm.getOldTypeModel().getImportPackages().size());
 			System.out.println("ImportPackages num:"+atm.getNewTypeModel().getImportPackages().size());
-			
+			*/
 			System.out.print("changeRecoders new:"+ atm.getNewTypeModel().getPackage()+" " +atm.getNewTypeModel().getClassName()+" ");
 			if (atm.getNewTypeModel() instanceof EnumModel) {
 				System.out.println("Enum");
@@ -288,4 +287,3 @@ public class ChangeComparator {
 		}
 	}
 }
-*/

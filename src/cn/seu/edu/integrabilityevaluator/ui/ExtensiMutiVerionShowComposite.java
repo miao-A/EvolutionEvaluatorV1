@@ -6,6 +6,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
+
+
+
+
+
+
+
+
+
 import org.eclipse.jdt.core.Flags;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -16,6 +26,10 @@ import org.eclipse.swt.SWT;
 import org.jfree.chart.JFreeChart;
 import org.jfree.experimental.chart.swt.ChartComposite;
 import org.jfree.chart.ChartPanel;
+
+import java.awt.Panel;
+import java.awt.BorderLayout;
+
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.widgets.Display;
@@ -65,35 +79,32 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		
 		final CTabItem extenTabItem = new CTabItem(tabFolder, SWT.NONE);
-		//extenTabItem.setText("\u53EF\u6269\u5C55\u6027\u8D8B\u52BF\u56FE");
 		extenTabItem.setText("Extensibility tendency chart");
+		
 		final CTabItem extenDiffTabItem = new CTabItem(tabFolder, SWT.NONE);
-		//extenDiffTabItem.setText("\u7248\u672C\u53D8\u66F4\u8BE6\u7EC6\u4FE1\u606F");
 		extenDiffTabItem.setText("Detailed information about version changes");
+		
 		final Combo version1Combo = new Combo(this, SWT.NONE);
 		version1Combo.setBounds(278, 7, 88, 25);
 		
 		final Combo version2Combo = new Combo(this, SWT.NONE);
 		version2Combo.setBounds(431, 7, 88, 25);
 		
-		Label label = new Label(this, SWT.NONE);
-		label.setBounds(215, 15, 61, 17);
-		//label.setText("\u7248\u672C1\uFF1A");
-		label.setText("Version1:");
+		Label lblVersion = new Label(this, SWT.NONE);
+		lblVersion.setBounds(215, 15, 61, 17);
+		lblVersion.setText("Version1:");
 		
-		Label label_1 = new Label(this, SWT.NONE);
-		//label_1.setText("\u7248\u672C2\uFF1A");
-		label_1.setText("Version2:");
-		label_1.setBounds(368, 15, 61, 17);
+		Label lblVersion_1 = new Label(this, SWT.NONE);
+		lblVersion_1.setText("Version2:");
+		lblVersion_1.setBounds(368, 15, 61, 17);
 		
 		
 		
 		
 		final Button projRadioButton = new Button(this, SWT.RADIO);
-		projRadioButton.setText("System level");
 		projRadioButton.setSelection(false);
-		projRadioButton.setBounds(540, 7, 98, 17);
-		//projRadioButton.setText("\u7CFB\u7EDF\u5C42");
+		projRadioButton.setBounds(554, 10, 98, 17);
+		projRadioButton.setText("System level");
 		
 		final Button pkgRadioButton = new Button(this, SWT.RADIO);
 		
@@ -102,7 +113,7 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 			public void widgetSelected(SelectionEvent e) {
 				//projRadioButton.setSelection(false);
 				int index = projectSelectCombo.getSelectionIndex();
-				if (index >= 0) {
+				if (index > 0) {
 					String projName = projectSelectCombo.getItem(index);
 					extensibilityChart = new ExtensibilityLineChart("",projName);
 					
@@ -127,7 +138,7 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 				
 			}
 		});
-		pkgRadioButton.setBounds(540, 30, 98, 17);
+		pkgRadioButton.setBounds(554, 30, 98, 17);
 		pkgRadioButton.setText("Package level");
 		
 		projRadioButton.addSelectionListener(new SelectionAdapter() {

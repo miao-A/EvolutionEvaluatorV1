@@ -6,8 +6,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import cn.seu.edu.integrabilityevaluator.dbconnect.SubstitutabilityConnector;
-
+import cn.seu.edu.integrabilityevaluator.dbconnect.ClassChangeabilityConnector;
 
 public class SubstitutabilityDiff {
 	private String project = null;
@@ -20,12 +19,9 @@ public class SubstitutabilityDiff {
 	
 	public HashMap<String, HashMap<String, List<String>>> diffInProject(String preVersion,String postVersion){		
 		
-/*		ClassChangeabilityConnector preProject = new ClassChangeabilityConnector(project, preVersion);
-		ClassChangeabilityConnector postProject = new ClassChangeabilityConnector(project, postVersion);*/
-			
-		SubstitutabilityConnector preProject = new SubstitutabilityConnector(project, preVersion);
-		SubstitutabilityConnector postProject = new SubstitutabilityConnector(project, postVersion);
-		
+		ClassChangeabilityConnector preProject = new ClassChangeabilityConnector(project, preVersion);
+		ClassChangeabilityConnector postProject = new ClassChangeabilityConnector(project, postVersion);
+				
 		HashMap<String,ArrayList<String>> preHashMap = new HashMap<>();
 		HashMap<String,ArrayList<String>> postHashMap = new HashMap<>();
 		
@@ -88,12 +84,9 @@ public class SubstitutabilityDiff {
 	public HashMap<String, HashMap<String, List<String>>> moreDiffInProject(String preVersion,String postVersion){
 		
 		
-		/*ClassChangeabilityConnector preProject = new ClassChangeabilityConnector(project, preVersion);
-		ClassChangeabilityConnector postProject = new ClassChangeabilityConnector(project, postVersion);*/
-		
-		SubstitutabilityConnector preProject = new SubstitutabilityConnector(project, preVersion);
-		SubstitutabilityConnector postProject = new SubstitutabilityConnector(project, postVersion);
-		
+		ClassChangeabilityConnector preProject = new ClassChangeabilityConnector(project, preVersion);
+		ClassChangeabilityConnector postProject = new ClassChangeabilityConnector(project, postVersion);
+				
 		HashMap<String,ArrayList<String>> preHashMap = new HashMap<>();
 		HashMap<String,ArrayList<String>> postHashMap = new HashMap<>();
 		

@@ -87,13 +87,13 @@ public class VersionCompatibilityComposite extends Composite {
 	public VersionCompatibilityComposite(Composite parent, int style) {
 		super(parent, style);
 		
-		Label label = new Label(this, SWT.NONE);
-		label.setBounds(10, 10, 79, 17);
-		label.setText("\u9879\u76EE\u8DEF\u5F841\uFF1A");
+		Label lblProjectPath = new Label(this, SWT.NONE);
+		lblProjectPath.setBounds(10, 10, 79, 17);
+		lblProjectPath.setText("Project path1:");
 		
-		Label label_1 = new Label(this, SWT.NONE);
-		label_1.setText("\u9879\u76EE\u8DEF\u5F842\uFF1A");
-		label_1.setBounds(10, 62, 79, 17);
+		Label lblProjectPath_1 = new Label(this, SWT.NONE);
+		lblProjectPath_1.setText("Project path2:");
+		lblProjectPath_1.setBounds(10, 62, 79, 17);
 		
 		oldComponentText = new Text(this, SWT.BORDER);
 		oldComponentText.setBounds(92, 7, 375, 22);
@@ -118,13 +118,13 @@ public class VersionCompatibilityComposite extends Composite {
 			
 		});
 		btnNewButton.setBounds(500, 10, 53, 22);
-		btnNewButton.setText("\u8DEF\u5F84...");
+		btnNewButton.setText("Path...");
 		
 		newComponentText = new Text(this, SWT.BORDER);
 		newComponentText.setBounds(92, 59, 375, 22);
 		
-		Button button = new Button(this, SWT.NONE);
-		button.addSelectionListener(new SelectionAdapter() {
+		Button btnPath = new Button(this, SWT.NONE);
+		btnPath.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				
@@ -140,8 +140,8 @@ public class VersionCompatibilityComposite extends Composite {
 				
 			}
 		});
-		button.setBounds(500, 57, 53, 22);
-		button.setText("\u8DEF\u5F84...");
+		btnPath.setBounds(500, 57, 53, 22);
+		btnPath.setText("Path...");
 		
 		changeTypeTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
 		changeTypeTable.setBounds(10, 120, 711, 406);
@@ -153,7 +153,9 @@ public class VersionCompatibilityComposite extends Composite {
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
 		
-		String[] tableHeader = {"        包+类名        ","        新增方法         ", "        不兼容方法         ","        兼容的方法         ","        未变更方法         "};		
+		//String[] tableHeader = {"        包+类名        ","        新增方法         ", "        不兼容方法         ","        兼容的方法         ","        未变更方法         "};		
+		String[] tableHeader = {"        Package.Class        ","        New methods         ", "        Incompathiblity methods         ","        Compatible methods         ","        Unchanged methods         "};		
+
 		for (int i = 0; i < tableHeader.length; i++)  
 	    {  					
 			TableColumn tableColumn = new TableColumn(changeTypeTable, SWT.NONE);
@@ -190,7 +192,8 @@ public class VersionCompatibilityComposite extends Composite {
 				List<ClassCompatibilityRecoder> unCompatibilityRecoders = compatibility.getUncompatibilityRecoders();					
 				if (unCompatibilityRecoders.size()!=0) {
 					TableItem uItem = new TableItem(changeTypeTable, SWT.NONE);
-					uItem.setText(new String[] {"修改的类","------","------","------","------"});
+					//uItem.setText(new String[] {"修改的类","------","------","------","------"});
+					uItem.setText(new String[] {"Changed classes","------","------","------","------"});
 				}
 				for(ClassCompatibilityRecoder tcr : unCompatibilityRecoders){					
 	
@@ -321,7 +324,8 @@ public class VersionCompatibilityComposite extends Composite {
 				List<AbstractClassModel> removedType = compatibility.getRemovedTypeModels();	
 				if (removedType.size()!=0) {
 					TableItem uItem = new TableItem(changeTypeTable, SWT.NONE);
-					uItem.setText(new String[] {"删除的类","------","------","------","------"});
+					//uItem.setText(new String[] {"删除的类","------","------","------","------"});
+					uItem.setText(new String[] {"deleted classes","------","------","------","------"});
 				}
 				for(AbstractClassModel atm : removedType){
 					final TableItem item = new TableItem(changeTypeTable, SWT.NONE);
@@ -345,7 +349,8 @@ public class VersionCompatibilityComposite extends Composite {
 				List<ClassCompatibilityRecoder> unchangeType = compatibility.getCompatibilityRecoders();
 				if (unchangeType.size()!=0) {
 					TableItem uItem = new TableItem(changeTypeTable, SWT.NONE);
-					uItem.setText(new String[] {"可兼容的类","------","------","------","------"});
+					//uItem.setText(new String[] {"可兼容的类","------","------","------","------"});
+					uItem.setText(new String[] {"Compatible classes","------","------","------","------"});
 				}
 				for(ClassCompatibilityRecoder tcr : unchangeType){
 					final TableItem item = new TableItem(changeTypeTable, SWT.NONE);					
@@ -552,7 +557,8 @@ public class VersionCompatibilityComposite extends Composite {
 					//TableItem lastItem = new TableItem(changeTypeTable, SWT.NONE);
 					Double double1 = new Double(1.0*(unchangeCount+compatibilityCount)/(unchangeCount+removedCount+compatibilityCount));
 					//lastItem.setText(new String[] {"新版本与旧版本相兼容的接口个数:"+(unchangeCount+compatibilityCount),"旧版本软件的接口数:"+(unchangeCount+removedCount+compatibilityCount),double1.toString()});
-					ResultText.setText("版本1与版本2的兼容性为\t"+double1.toString());
+					//ResultText.setText("版本1与版本2的兼容性为\t"+double1.toString());
+					ResultText.setText("Compatible between version1 and version2:"+double1.toString());
 				}
 				
 				System.out.println(newCount +"\t"+removedCount+"\t"+compatibilityCount+"\t"+unchangeCount);
@@ -560,7 +566,7 @@ public class VersionCompatibilityComposite extends Composite {
 		});
 		
 		CompatibilityBtn.setBounds(583, 10, 79, 69);
-		CompatibilityBtn.setText("\u5206\u6790");
+		CompatibilityBtn.setText("Analysis");
 		
 		ResultText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
 		ResultText.setBounds(10, 85, 457, 23);

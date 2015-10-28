@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import cn.seu.edu.integrabilityevaluator.dbconnect.ChangeabilityInfoConnector;
 import cn.seu.edu.integrabilityevaluator.dbconnect.ProjectConnector;
-import cn.seu.edu.integrabilityevaluator.dbconnect.SubstitutabilityInfoConnector;
 
 public class SubstitutabilityLineChart  extends LineChart {
 
@@ -29,7 +29,7 @@ public class SubstitutabilityLineChart  extends LineChart {
 		LinkedHashMap<String, HashMap<String, Double>> dataMap = new LinkedHashMap<String, HashMap<String, Double>>();		
 		
 		for (String version : versionlist) {
-			SubstitutabilityInfoConnector dbConnector = new SubstitutabilityInfoConnector(projectName, version);
+			ChangeabilityInfoConnector dbConnector = new ChangeabilityInfoConnector(projectName, version);
 			HashMap<String, Double> map = new HashMap<String, Double>();
 			List<String> pkgNameList = dbConnector.getpackageName();
 			int pkgNum = pkgNameList.size();

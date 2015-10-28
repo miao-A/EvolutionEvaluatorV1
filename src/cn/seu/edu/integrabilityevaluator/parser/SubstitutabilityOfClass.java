@@ -6,7 +6,9 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.ASTParser;
 
+import cn.seu.edu.integrabilityevaluator.astvisitor.ChangeabilityOfClassRequestor;
 import cn.seu.edu.integrabilityevaluator.astvisitor.SubstitutabilityRequestor;
+import cn.seu.edu.integrabilityevaluator.dbconnect.ChangeabilityInfoConnector;
 import cn.seu.edu.integrabilityevaluator.dbconnect.SubstitutabilityConnector;
 import cn.seu.edu.integrabilityevaluator.dbconnect.SubstitutabilityInfoConnector;
 
@@ -31,7 +33,7 @@ public class SubstitutabilityOfClass {
 			}else {
 				toIndex = listLength;
 			}
-			   
+			
 			String[] sourceFilePaths = filelist.subList(i, toIndex).toArray(new String[toIndex - i]);
 			parser.createASTs(sourceFilePaths,  null, new String[0], substitutabilityRequestor, null);
 			

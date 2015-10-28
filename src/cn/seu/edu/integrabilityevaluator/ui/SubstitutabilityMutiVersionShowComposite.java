@@ -34,6 +34,7 @@ import org.eclipse.swt.graphics.Rectangle;
 import cn.seu.edu.integrabilityevaluator.chart.SubstitutabilityLineChart;
 import cn.seu.edu.integrabilityevaluator.chart.ExtensibilityLineChart;
 import cn.seu.edu.integrabilityevaluator.chart.LineChart;
+import cn.seu.edu.integrabilityevaluator.dbconnect.ClassChangeabilityConnector;
 import cn.seu.edu.integrabilityevaluator.dbconnect.ProjectConnector;
 import cn.seu.edu.integrabilityevaluator.dbconnect.ProjectInfoConnector;
 import cn.seu.edu.integrabilityevaluator.parser.SubstitutabilityDiff;
@@ -60,7 +61,7 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		
 		Label lblNull = new Label(this, SWT.NONE);
 		lblNull.setBounds(21, 10, 61, 17);
-		lblNull.setText("\u9009\u62E9\u9879\u76EE\uFF1A");
+		lblNull.setText("Project:");
 	
 		projectSelectCombo.setBounds(102, 7, 98, 25);
 		
@@ -71,13 +72,13 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 				
 		final CTabItem changeTabItem = new CTabItem(tabFolder, SWT.NONE);
-		changeTabItem.setText("\u53EF\u66FF\u6362\u6027\u8D8B\u52BF\u56FE");
+		changeTabItem.setText("Substitutability tendency chart");
 		
 		/*final CTabItem changeDifftabItem = new CTabItem(tabFolder, SWT.NONE);
 		changeDifftabItem.setText("\u7248\u672C\u53D8\u66F4");*/
 		
 		final CTabItem classChangeDiffTabItem = new CTabItem(tabFolder, SWT.NONE);
-		classChangeDiffTabItem.setText("\u7248\u672C\u53D8\u66F4\u8BE6\u7EC6\u4FE1\u606F");
+		classChangeDiffTabItem.setText("Detailed information about version changes");
 		
 		final Combo version1Combo = new Combo(this, SWT.NONE);
 		version1Combo.setBounds(304, 10, 88, 25);
@@ -85,13 +86,13 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		final Combo version2Combo = new Combo(this, SWT.NONE);
 		version2Combo.setBounds(477, 10, 88, 25);
 		
-		Label label = new Label(this, SWT.NONE);
-		label.setBounds(237, 15, 61, 17);
-		label.setText("\u7248\u672C1\uFF1A");
+		Label lblVersion = new Label(this, SWT.NONE);
+		lblVersion.setBounds(237, 15, 61, 17);
+		lblVersion.setText("Version1:");
 		
-		Label label_1 = new Label(this, SWT.NONE);
-		label_1.setText("\u7248\u672C2\uFF1A");
-		label_1.setBounds(410, 15, 61, 17);
+		Label lblVersion_1 = new Label(this, SWT.NONE);
+		lblVersion_1.setText("Version2:");
+		lblVersion_1.setBounds(410, 15, 61, 17);
 			
 		projectSelectCombo.addSelectionListener(new SelectionAdapter() {
 			@Override

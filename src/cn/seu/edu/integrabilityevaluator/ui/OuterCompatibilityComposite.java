@@ -45,18 +45,18 @@ public class OuterCompatibilityComposite extends Composite {
 	public OuterCompatibilityComposite(Composite parent, int style) {
 		super(parent, style);
 		
-		Label label = new Label(this, SWT.NONE);
-		label.setAlignment(SWT.RIGHT);
-		label.setBounds(27, 27, 103, 17);
-		label.setText("\u9879\u76EE\u8DEF\u5F84\uFF1A");
+		Label lblProjectPath = new Label(this, SWT.NONE);
+		lblProjectPath.setAlignment(SWT.RIGHT);
+		lblProjectPath.setBounds(27, 27, 103, 17);
+		lblProjectPath.setText("Project path:");
 		
 		Label lbljar = new Label(this, SWT.NONE);
 		lbljar.setAlignment(SWT.RIGHT);
-		lbljar.setText("\u5916\u90E8jar\u5305\u8DEF\u5F84\uFF1A");
-		lbljar.setBounds(27, 74, 103, 17);
+		lbljar.setText("Path of jar file:");
+		lbljar.setBounds(27, 74, 142, 17);
 		
 		pathOfProjectText = new Text(this, SWT.BORDER);
-		pathOfProjectText.setBounds(136, 24, 346, 22);
+		pathOfProjectText.setBounds(136, 24, 379, 22);
 		
 		
 		
@@ -69,7 +69,8 @@ public class OuterCompatibilityComposite extends Composite {
 				Shell shell = new Shell(display);
 				DirectoryDialog folderDialog = new DirectoryDialog(shell);
 				
-				folderDialog.setText("请选择项目文件");	
+				//folderDialog.setText("请选择项目文件");	
+				folderDialog.setText("Please select project file");
 				folderDialog.setFilterPath("D:/ProjectOfHW/jEditor/jEditor0.2");//"D:/ProjectOfHW/junit/junit3.4"
 				folderDialog.open();
 				
@@ -77,20 +78,21 @@ public class OuterCompatibilityComposite extends Composite {
 			}			
 		});
 		btnNewButton.setBounds(488, 24, 53, 22);
-		btnNewButton.setText("\u8DEF\u5F84...");
+		btnNewButton.setText("Path...");
 		
 		jarPathText = new Text(this, SWT.BORDER);
-		jarPathText.setBounds(136, 71, 346, 22);
+		jarPathText.setBounds(175, 71, 307, 22);
 		
-		Button button = new Button(this, SWT.NONE);
-		button.addSelectionListener(new SelectionAdapter() {
+		Button btnPath = new Button(this, SWT.NONE);
+		btnPath.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				
 				Display display = Display.getDefault();
 				Shell shell = new Shell(display);
 				FileDialog fileDialog = new FileDialog(shell, SWT.OPEN);
-				fileDialog.setText("选择jar文件");
+				//fileDialog.setText("选择jar文件");
+				fileDialog.setText("Select jar file");
 				fileDialog.setFilterPath("D:\\test");
 				fileDialog.setFileName("jfreechart-1.0.19.jar");
 				fileDialog.open();
@@ -98,8 +100,8 @@ public class OuterCompatibilityComposite extends Composite {
 				jarPathText.setText(fileDialog.getFilterPath()+"\\"+fileDialog.getFileName());				
 			}
 		});
-		button.setBounds(488, 71, 53, 22);
-		button.setText("\u8DEF\u5F84...");
+		btnPath.setBounds(488, 71, 53, 22);
+		btnPath.setText("Path...");
 		
 		jaruncompatibilityTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
 		jaruncompatibilityTable.setLinesVisible(true);
@@ -130,8 +132,8 @@ public class OuterCompatibilityComposite extends Composite {
 		
 		Label lbljar_1 = new Label(this, SWT.NONE);
 		lbljar_1.setAlignment(SWT.RIGHT);
-		lbljar_1.setText("\u5916\u90E8jar\u5305\u4F9D\u8D56\u5305\u8DEF\u5F84\uFF1A");
-		lbljar_1.setBounds(2, 99, 128, 17);
+		lbljar_1.setText("Path of jar file dependency:");
+		lbljar_1.setBounds(2, 99, 167, 17);
 		
 		Label label_2 = new Label(this, SWT.SEPARATOR | SWT.HORIZONTAL);
 		label_2.setBounds(0, 63, 577, 2);
@@ -140,7 +142,7 @@ public class OuterCompatibilityComposite extends Composite {
 		label_3.setBounds(0, 145, 577, 2);
 		
 		jarDependPathText = new Text(this, SWT.BORDER);
-		jarDependPathText.setBounds(136, 99, 346, 22);
+		jarDependPathText.setBounds(175, 99, 307, 22);
 		
 		Button CompatibilityBtn = new Button(this, SWT.NONE);		
 		CompatibilityBtn.addSelectionListener(new SelectionAdapter() {
@@ -186,14 +188,14 @@ public class OuterCompatibilityComposite extends Composite {
 					if (outerCompatibility.jarCompatibility(jarPath, jarDependPath)) {
 						
 						
-						String[] tableHeader = {"兼容        ",jarPath+"         "};	
+						String[] tableHeader = {"Compatible        ",jarPath+"         "};	
 						TableItem item = new TableItem(jaruncompatibilityTable,SWT.NONE);
 						item.setText(tableHeader);
 						
-						System.out.println("兼容"+jarPath);
+						System.out.println("Compatible"+jarPath);
 					}else {
-						System.out.println("不兼容"+jarPath);
-						String[] tableHeader = {"不兼容        ",jarPath+"         "};	
+						System.out.println("Incompatible"+jarPath);
+						String[] tableHeader = {"Incompatible        ",jarPath+"         "};	
 						TableItem item = new TableItem(jaruncompatibilityTable,SWT.NONE);
 						item.setText(tableHeader);
 						/*TableItem item = new TableItem(jaruncompatibilityTable,SWT.NONE);
@@ -212,7 +214,7 @@ public class OuterCompatibilityComposite extends Composite {
 
 						for (JarClassModel model : lists) {
 							item = new TableItem(jaruncompatibilityTable,SWT.NONE);
-							String[] strings= {"不兼容的类       ",model.getFromClass(),};
+							String[] strings= {"Incompatible classes       ",model.getFromClass(),};
 							item.setText(strings);
 						}
 						
@@ -222,24 +224,25 @@ public class OuterCompatibilityComposite extends Composite {
 		});
 		
 		CompatibilityBtn.setBounds(617, 48, 79, 69);
-		CompatibilityBtn.setText("\u5206\u6790");
+		CompatibilityBtn.setText("Analysis");
 		
-		Button button_1 = new Button(this, SWT.NONE);
-		button_1.addSelectionListener(new SelectionAdapter() {
+		Button btnPath_1 = new Button(this, SWT.NONE);
+		btnPath_1.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Display display = Display.getDefault();
 				Shell shell = new Shell(display);
 				DirectoryDialog folderDialog = new DirectoryDialog(shell);
 				
-				folderDialog.setText("请选择项目文件");	
+				//folderDialog.setText("请选择项目文件");	
+				folderDialog.setText("Please select project file");
 				folderDialog.setFilterPath("D:\\test\\TestJar");
 				folderDialog.open();				
 				jarDependPathText.setText(folderDialog.getFilterPath());				
 			}
 		});
-		button_1.setText("\u8DEF\u5F84...");
-		button_1.setBounds(488, 99, 53, 22);
+		btnPath_1.setText("Path...");
+		btnPath_1.setBounds(488, 99, 53, 22);
 		
 		
 		

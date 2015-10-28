@@ -7,6 +7,8 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.Modifier;
 
 
+
+
 /*public class ClassModel{	
 	private String packageName;//源文件中包名
 	private String className;//源文件中类名	

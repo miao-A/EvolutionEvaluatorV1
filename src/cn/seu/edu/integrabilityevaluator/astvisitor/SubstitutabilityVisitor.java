@@ -13,6 +13,8 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.PackageDeclaration;
 import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+
+import cn.seu.edu.integrabilityevaluator.dbconnect.ClassChangeabilityConnector;
 import cn.seu.edu.integrabilityevaluator.dbconnect.SubstitutabilityConnector;
 
 
@@ -65,8 +67,6 @@ public class SubstitutabilityVisitor extends ASTVisitor{
 		}
 		String fullString = binding.getQualifiedName();		
 		String importpackageName = binding.getPackage().getName();
-		
-		
 		if (fullString.contains(importpackageName)) {
 			String importClassName = fullString.substring(importpackageName.length()+1);
 			if (importClassName.contains(".")) {

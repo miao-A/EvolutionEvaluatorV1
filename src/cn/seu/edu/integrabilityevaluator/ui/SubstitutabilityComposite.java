@@ -12,9 +12,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.SWT;
 
-
-
-
+import cn.seu.edu.integrabilityevaluator.dbconnect.ClassChangeabilityConnector;
 import cn.seu.edu.integrabilityevaluator.dbconnect.ProjectConnector;
 import cn.seu.edu.integrabilityevaluator.dbconnect.SubstitutabilityConnector;
 
@@ -22,7 +20,6 @@ import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
-
 
 public class SubstitutabilityComposite extends Composite {
 
@@ -68,19 +65,19 @@ public class SubstitutabilityComposite extends Composite {
 		TabFolder tabFolder = new TabFolder(this, SWT.NONE);
 		tabFolder.setBounds(0, 51, 655, 406);
 		
-		TabItem tabItem = new TabItem(tabFolder, SWT.NONE);
-		tabItem.setText("\u5305\u8026\u5408\u5173\u7CFB\u8868");
+		TabItem tbtmTableOfPpackage = new TabItem(tabFolder, SWT.NONE);
+		tbtmTableOfPpackage.setText("Table of package coupling relationships ");
 		
 		final Tree packageCouplingTree = new Tree(tabFolder, SWT.BORDER);
-		tabItem.setControl(packageCouplingTree);
+		tbtmTableOfPpackage.setControl(packageCouplingTree);
 		packageCouplingTree.setLinesVisible(true);
 		
-		TabItem tabItem_1 = new TabItem(tabFolder, SWT.NONE);
-		tabItem_1.setText("\u7C7B\u8026\u5408\u5173\u7CFB\u8868");
+		TabItem tbtmTableOfClass = new TabItem(tabFolder, SWT.NONE);
+		tbtmTableOfClass.setText("Table of class coupling relationships");
 		
 		final Tree classCouplingTree = new Tree(tabFolder, SWT.BORDER);
 		classCouplingTree.setLinesVisible(true);
-		tabItem_1.setControl(classCouplingTree);
+		tbtmTableOfClass.setControl(classCouplingTree);
 
 		
 		
