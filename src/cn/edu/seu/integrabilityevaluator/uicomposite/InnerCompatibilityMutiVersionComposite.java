@@ -64,8 +64,8 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		
 		Label lblProjectPath = new Label(this, SWT.NONE);
 		FormData fd_lblProjectPath = new FormData();
-		fd_lblProjectPath.top = new FormAttachment(0, 18);
 		fd_lblProjectPath.left = new FormAttachment(0, 10);
+		fd_lblProjectPath.top = new FormAttachment(0, 18);
 		lblProjectPath.setLayoutData(fd_lblProjectPath);
 		lblProjectPath.setText("Project version1:");
 		
@@ -73,16 +73,13 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		fd_lblProjectPath.right = new FormAttachment(pathOfOldProjectText, -6);
 		FormData fd_pathOfOldProjectText = new FormData();
 		fd_pathOfOldProjectText.bottom = new FormAttachment(0, 35);
-		fd_pathOfOldProjectText.right = new FormAttachment(0, 725);
 		fd_pathOfOldProjectText.top = new FormAttachment(0, 13);
 		fd_pathOfOldProjectText.left = new FormAttachment(0, 143);
 		pathOfOldProjectText.setLayoutData(fd_pathOfOldProjectText);
 		
 		Button btnNewButton = new Button(this, SWT.NONE);
+		fd_pathOfOldProjectText.right = new FormAttachment(btnNewButton, -6);
 		FormData fd_btnNewButton = new FormData();
-		fd_btnNewButton.left = new FormAttachment(pathOfOldProjectText, 10);
-		fd_btnNewButton.right = new FormAttachment(pathOfOldProjectText, 75, SWT.RIGHT);
-		fd_btnNewButton.bottom = new FormAttachment(0, 35);
 		fd_btnNewButton.top = new FormAttachment(0, 13);
 		btnNewButton.setLayoutData(fd_btnNewButton);
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
@@ -107,7 +104,7 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		
 		uncompatibilityTableOne = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_uncompatibilityTableOne = new FormData();
-		fd_uncompatibilityTableOne.right = new FormAttachment(100, -20);
+		fd_uncompatibilityTableOne.right = new FormAttachment(100, -10);
 		fd_uncompatibilityTableOne.left = new FormAttachment(0, 10);
 		uncompatibilityTableOne.setLayoutData(fd_uncompatibilityTableOne);
 		uncompatibilityTableOne.setHeaderVisible(true);
@@ -117,8 +114,8 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 
 		uncompatibilityTableTwo = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_uncompatibilityTableTwo = new FormData();
-		fd_uncompatibilityTableTwo.bottom = new FormAttachment(100, -20);
-		fd_uncompatibilityTableTwo.right = new FormAttachment(100, -20);
+		fd_uncompatibilityTableTwo.bottom = new FormAttachment(100, -10);
+		fd_uncompatibilityTableTwo.right = new FormAttachment(100, -10);
 		fd_uncompatibilityTableTwo.left = new FormAttachment(0, 10);
 		uncompatibilityTableTwo.setLayoutData(fd_uncompatibilityTableTwo);
 		uncompatibilityTableTwo.setLinesVisible(true);
@@ -150,8 +147,10 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 	    }
 		
 		Button CompatibilityBtn = new Button(this, SWT.NONE);
+		fd_btnNewButton.left = new FormAttachment(CompatibilityBtn, -71, SWT.LEFT);
+		fd_btnNewButton.right = new FormAttachment(CompatibilityBtn, -6);
 		FormData fd_CompatibilityBtn = new FormData();
-		fd_CompatibilityBtn.left = new FormAttachment(btnNewButton, 20);
+		fd_CompatibilityBtn.right = new FormAttachment(100, -10);
 		//fd_CompatibilityBtn.right = new FormAttachment(100, -10);
 		fd_CompatibilityBtn.top = new FormAttachment(0, 11);
 		CompatibilityBtn.setLayoutData(fd_CompatibilityBtn);
@@ -235,17 +234,18 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		
 		pathOfNewProjectText = new Text(this, SWT.BORDER);
 		FormData fd_pathOfNewProjectText = new FormData();
+		fd_pathOfNewProjectText.right = new FormAttachment(pathOfOldProjectText, 0, SWT.RIGHT);
 		fd_pathOfNewProjectText.bottom = new FormAttachment(0, 70);
-		fd_pathOfNewProjectText.right = new FormAttachment(0, 725);
 		fd_pathOfNewProjectText.top = new FormAttachment(0, 48);
 		fd_pathOfNewProjectText.left = new FormAttachment(0, 143);
 		pathOfNewProjectText.setLayoutData(fd_pathOfNewProjectText);
 		
 		Button btnPath = new Button(this, SWT.NONE);
+		fd_btnNewButton.bottom = new FormAttachment(btnPath, -13);
 		FormData fd_btnPath = new FormData();
-		fd_btnPath.left = new FormAttachment(pathOfNewProjectText, 10);
-		fd_btnPath.right = new FormAttachment(pathOfNewProjectText, 75, SWT.RIGHT);
-		fd_btnPath.bottom = new FormAttachment(0, 70);
+		fd_btnPath.left = new FormAttachment(pathOfNewProjectText, 6);
+		fd_btnPath.right = new FormAttachment(CompatibilityBtn, -6);
+		fd_btnPath.bottom = new FormAttachment(CompatibilityBtn, 0, SWT.BOTTOM);
 		fd_btnPath.top = new FormAttachment(0, 48);
 		btnPath.setLayoutData(fd_btnPath);
 		btnPath.addSelectionListener(new SelectionAdapter() {

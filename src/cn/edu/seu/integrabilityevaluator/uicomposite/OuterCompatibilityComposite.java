@@ -51,35 +51,34 @@ public class OuterCompatibilityComposite extends Composite {
 		
 		Label lblProjectPath = new Label(this, SWT.NONE);
 		FormData fd_lblProjectPath = new FormData();
-		fd_lblProjectPath.right = new FormAttachment(0, 187);
+		fd_lblProjectPath.left = new FormAttachment(0, 10);
 		fd_lblProjectPath.top = new FormAttachment(0, 27);
 		lblProjectPath.setLayoutData(fd_lblProjectPath);
 		lblProjectPath.setText("Project path:");
 		
 		Label lbljar = new Label(this, SWT.NONE);
-		fd_lblProjectPath.left = new FormAttachment(lbljar, 0, SWT.LEFT);
 		FormData fd_lbljar = new FormData();
+		fd_lbljar.right = new FormAttachment(lblProjectPath, 0, SWT.RIGHT);
 		fd_lbljar.left = new FormAttachment(0, 10);
 		fd_lbljar.top = new FormAttachment(0, 74);
 		lbljar.setLayoutData(fd_lbljar);
-		lbljar.setText("Path of jar file:");
+		lbljar.setText("Jar file path:");
 		
 		pathOfProjectText = new Text(this, SWT.BORDER);
+		fd_lblProjectPath.right = new FormAttachment(pathOfProjectText, -17);
 		FormData fd_pathOfProjectText = new FormData();
 		fd_pathOfProjectText.bottom = new FormAttachment(0, 46);
-		fd_pathOfProjectText.right = new FormAttachment(0, 675);
 		fd_pathOfProjectText.top = new FormAttachment(0, 24);
-		fd_pathOfProjectText.left = new FormAttachment(0, 193);
+		fd_pathOfProjectText.left = new FormAttachment(0, 218);
 		pathOfProjectText.setLayoutData(fd_pathOfProjectText);
 		
 		
 		
 		Button btnNewButton = new Button(this, SWT.NONE);
+		fd_pathOfProjectText.right = new FormAttachment(btnNewButton, -6);
 		FormData fd_btnNewButton = new FormData();
-		fd_btnNewButton.right = new FormAttachment(pathOfProjectText,100, SWT.RIGHT);
-		fd_btnNewButton.left = new FormAttachment(pathOfProjectText, 15);
-		fd_btnNewButton.bottom = new FormAttachment(lblProjectPath, 20);
-		fd_btnNewButton.top = new FormAttachment(lblProjectPath, -5, SWT.TOP);
+		fd_btnNewButton.bottom = new FormAttachment(0, 47);
+		fd_btnNewButton.top = new FormAttachment(0, 22);
 
 		btnNewButton.setLayoutData(fd_btnNewButton);
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
@@ -100,17 +99,17 @@ public class OuterCompatibilityComposite extends Composite {
 		btnNewButton.setText("Select...");
 		
 		jarPathText = new Text(this, SWT.BORDER);
-		fd_lbljar.right = new FormAttachment(jarPathText, -6);
 		FormData fd_jarPathText = new FormData();
-		fd_jarPathText.left = new FormAttachment(0, 193);
+		fd_jarPathText.right = new FormAttachment(pathOfProjectText, 0, SWT.RIGHT);
+		fd_jarPathText.left = new FormAttachment(0, 218);
 		fd_jarPathText.bottom = new FormAttachment(0, 93);
-		fd_jarPathText.right = new FormAttachment(0, 675);
 		fd_jarPathText.top = new FormAttachment(0, 71);
 		jarPathText.setLayoutData(fd_jarPathText);
 		
 		Button btnSelect = new Button(this, SWT.NONE);
+		fd_btnNewButton.left = new FormAttachment(btnSelect, -84);
+		fd_btnNewButton.right = new FormAttachment(btnSelect, 0, SWT.RIGHT);
 		FormData fd_btnSelect = new FormData();
-		fd_btnSelect.left = new FormAttachment(jarPathText, 15);
 		btnSelect.setLayoutData(fd_btnSelect);
 		btnSelect.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -163,23 +162,25 @@ public class OuterCompatibilityComposite extends Composite {
 		
 		Label lbljar_1 = new Label(this, SWT.NONE);
 		FormData fd_lbljar_1 = new FormData();
-		fd_lbljar_1.right = new FormAttachment(0, 187);
+		fd_lbljar_1.right = new FormAttachment(lblProjectPath, 0, SWT.RIGHT);
 		fd_lbljar_1.top = new FormAttachment(0, 99);
 		fd_lbljar_1.left = new FormAttachment(0, 10);
 		lbljar_1.setLayoutData(fd_lbljar_1);
 		lbljar_1.setAlignment(SWT.LEFT);
-		lbljar_1.setText("Path of jar file dependency:");
+		lbljar_1.setText("Jar file dependency path:");
 		
 		Label label_2 = new Label(this, SWT.SEPARATOR | SWT.HORIZONTAL);
 		fd_btnSelect.top = new FormAttachment(label_2, 3);
 		FormData fd_label_2 = new FormData();
-		fd_label_2.bottom = new FormAttachment(btnNewButton, 12, SWT.BOTTOM);
-		fd_label_2.top = new FormAttachment(btnNewButton, 8);
+		fd_label_2.bottom = new FormAttachment(lblProjectPath, 15, SWT.BOTTOM);
+		fd_label_2.top = new FormAttachment(lblProjectPath, 6);
+		fd_label_2.right = new FormAttachment(btnNewButton, 0, SWT.RIGHT);
+		fd_label_2.left = new FormAttachment(0);
 		label_2.setLayoutData(fd_label_2);
 		
 		Label label_3 = new Label(this, SWT.SEPARATOR | SWT.HORIZONTAL);
 		FormData fd_label_3 = new FormData();
-		fd_label_3.right = new FormAttachment(0, 757);
+		fd_label_3.right = new FormAttachment(btnNewButton, 0, SWT.RIGHT);
 		fd_label_3.bottom = new FormAttachment(0, 147);
 		fd_label_3.left = new FormAttachment(0);
 		fd_label_3.top = new FormAttachment(0, 145);
@@ -187,21 +188,20 @@ public class OuterCompatibilityComposite extends Composite {
 		
 		jarDependPathText = new Text(this, SWT.BORDER);
 		FormData fd_jarDependPathText = new FormData();
-		fd_jarDependPathText.left = new FormAttachment(0, 193);
+		fd_jarDependPathText.right = new FormAttachment(pathOfProjectText, 0, SWT.RIGHT);
+		fd_jarDependPathText.left = new FormAttachment(0, 218);
 		fd_jarDependPathText.bottom = new FormAttachment(0, 121);
-		fd_jarDependPathText.right = new FormAttachment(0, 675);
 		fd_jarDependPathText.top = new FormAttachment(0, 99);
 		jarDependPathText.setLayoutData(fd_jarDependPathText);
 		
 		Button CompatibilityBtn = new Button(this, SWT.NONE);
-		fd_btnSelect.right = new FormAttachment(CompatibilityBtn, -16);
-		fd_label_2.left = new FormAttachment(CompatibilityBtn, -790, SWT.LEFT);
-		fd_label_2.right = new FormAttachment(CompatibilityBtn, -33);
+		fd_btnSelect.left = new FormAttachment(CompatibilityBtn, -111, SWT.LEFT);
+		fd_btnSelect.right = new FormAttachment(CompatibilityBtn, -27);
 		FormData fd_CompatibilityBtn = new FormData();
-		fd_CompatibilityBtn.top = new FormAttachment(0, 52);
-		fd_CompatibilityBtn.bottom = new FormAttachment(jaruncompatibilityTable, -41);
-		fd_CompatibilityBtn.left = new FormAttachment(0, 790);
-		fd_CompatibilityBtn.right = new FormAttachment(0, 869);
+		fd_CompatibilityBtn.left = new FormAttachment(jaruncompatibilityTable, -79);
+		fd_CompatibilityBtn.bottom = new FormAttachment(jaruncompatibilityTable, -45);
+		fd_CompatibilityBtn.top = new FormAttachment(lbljar, -26, SWT.TOP);
+		fd_CompatibilityBtn.right = new FormAttachment(jaruncompatibilityTable, 0, SWT.RIGHT);
 		CompatibilityBtn.setLayoutData(fd_CompatibilityBtn);
 		CompatibilityBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -282,9 +282,9 @@ public class OuterCompatibilityComposite extends Composite {
 		
 		Button btnSelect_1 = new Button(this, SWT.NONE);
 		FormData fd_btnSelect_1 = new FormData();
-		fd_btnSelect_1.right = new FormAttachment(btnSelect, 0, SWT.RIGHT);
-		fd_btnSelect_1.top = new FormAttachment(lbljar_1, -5, SWT.TOP);
-		fd_btnSelect_1.left = new FormAttachment(btnNewButton, 0, SWT.LEFT);
+		fd_btnSelect_1.left = new FormAttachment(CompatibilityBtn, -111, SWT.LEFT);
+		fd_btnSelect_1.top = new FormAttachment(btnSelect, 5);
+		fd_btnSelect_1.right = new FormAttachment(CompatibilityBtn, -27);
 		btnSelect_1.setLayoutData(fd_btnSelect_1);
 		btnSelect_1.addSelectionListener(new SelectionAdapter() {
 			@Override

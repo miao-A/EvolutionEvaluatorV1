@@ -129,6 +129,7 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		
 		final Button projRadioButton = new Button(this, SWT.RADIO);
 		FormData fd_projRadioButton = new FormData();
+		fd_projRadioButton.right = new FormAttachment(version2Combo, 132, SWT.RIGHT);
 		fd_projRadioButton.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
 		fd_projRadioButton.left = new FormAttachment(version2Combo, 34);
 		projRadioButton.setLayoutData(fd_projRadioButton);
@@ -140,9 +141,9 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		final Button pkgRadioButton = new Button(this, SWT.RADIO);
 		fd_tabFolder.right = new FormAttachment(pkgRadioButton, -17, SWT.RIGHT);
 		FormData fd_pkgRadioButton = new FormData();
-		fd_pkgRadioButton.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
-		fd_pkgRadioButton.left = new FormAttachment(projRadioButton, 26);
+		fd_pkgRadioButton.left = new FormAttachment(projRadioButton, 20);
 		fd_pkgRadioButton.right = new FormAttachment(100, -10);
+		fd_pkgRadioButton.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
 		pkgRadioButton.setLayoutData(fd_pkgRadioButton);
 		
 		pkgRadioButton.addSelectionListener(new SelectionAdapter() {

@@ -26,6 +26,7 @@ import org.eclipse.swt.layout.GridLayout;
 
 public class IntegrationApp {
 	
+	private Shell shell; 
 	private StackLayout compositeSL = new StackLayout();
 	private SubstitutabilityComposite changeabilityComposite;
 	private ExtensibilityComposite extensibilityComposite;
@@ -34,6 +35,7 @@ public class IntegrationApp {
 	private ExtensiMutiVerionShowComposite extensiMutiVerionShowComposite;
 	private SubstitutabilityMutiVersionShowComposite changeMutiVersionShowComposite;
 	private CompatibilityMutiVersionComposite compatibilityMutiVersionComposite;
+	
 	
 	
 	public static void main(String[] args){
@@ -60,7 +62,7 @@ public class IntegrationApp {
 	 */
 	public void open() {
 		Display display = Display.getDefault();
-		Shell shell = new Shell(SWT.SHELL_TRIM | SWT.PRIMARY_MODAL);
+		shell = new Shell(SWT.SHELL_TRIM | SWT.PRIMARY_MODAL);
 		shell.setSize(931, 658);
 		shell.setText("Integration Evaluator");
 		shell.setLayout(new FormLayout());
@@ -138,22 +140,29 @@ public class IntegrationApp {
 				// TODO Auto-generated method stub
 				if(event.widget == projImportItem){
 					compositeSL.topControl = projectInfoComposite;
+					setShellTitle("");
 				}else if (event.widget == extensibilityItem) {	
 					compositeSL.topControl = extensibilityComposite;
 					extensibilityComposite.reloadProject();
+					setShellTitle(" - Measurement of Extensibility");
 				}else if (event.widget == substitutabilityItem) {	
 					compositeSL.topControl = changeabilityComposite;
 					changeabilityComposite.reloadProject();
+					setShellTitle(" - Measurement of Substitutability");
 				}else if (event.widget == compatibilityItem) {	
 					compositeSL.topControl = compatibilityComposite;
+					setShellTitle(" - Measurement of Compatibility");
 				}else if (event.widget == extensibilityMutiItem) {	
 					compositeSL.topControl = extensiMutiVerionShowComposite;
 					extensiMutiVerionShowComposite.reloadProject();
+					setShellTitle(" - Evaluation of Extensibility under Evoluation");
 				}else if (event.widget == substitutabilityMutiItem) {	
 					compositeSL.topControl = changeMutiVersionShowComposite;
 					changeMutiVersionShowComposite.reloadProject();
+					setShellTitle(" - Evaluation of Substitutability under Evoluation");
 				}else if (event.widget == compatibilityMutiItem) {	
 					compositeSL.topControl = compatibilityMutiVersionComposite;
+					setShellTitle(" - Evaluation of Compatibility under Evoluation");
 				}						
 				composite.layout();
 			}
@@ -176,5 +185,9 @@ public class IntegrationApp {
 			}
 		}
 		
+	}
+	
+	public void setShellTitle(String string){
+		shell.setText("Integration Evaluator"+string);
 	}
 }

@@ -73,18 +73,18 @@ public class InnerCompatibilityComposite extends Composite {
 		fd_lblPackagePathOf.top = new FormAttachment(0, 62);
 		fd_lblPackagePathOf.left = new FormAttachment(0, 10);
 		lblPackagePathOf.setLayoutData(fd_lblPackagePathOf);
-		lblPackagePathOf.setText("Package path of project:");
+		lblPackagePathOf.setText("Package path:");
 		
 		pathOfProjectText = new Text(this, SWT.BORDER);
 		FormData fd_pathOfProjectText = new FormData();
+		fd_pathOfProjectText.left = new FormAttachment(lblProjectPath, 6);
 		fd_pathOfProjectText.top = new FormAttachment(0, 10);
-		fd_pathOfProjectText.left = new FormAttachment(0, 180);
 		pathOfProjectText.setLayoutData(fd_pathOfProjectText);
 		
 		Button btnNewButton = new Button(this, SWT.NONE);
+		fd_pathOfProjectText.right = new FormAttachment(btnNewButton, -6);
 		FormData fd_btnNewButton = new FormData();
-		fd_btnNewButton.top = new FormAttachment(0, 10);
-		fd_btnNewButton.left = new FormAttachment(pathOfProjectText, 27);
+		fd_btnNewButton.top = new FormAttachment(lblProjectPath, -5, SWT.TOP);
 		btnNewButton.setLayoutData(fd_btnNewButton);
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -108,19 +108,17 @@ public class InnerCompatibilityComposite extends Composite {
 		
 		componentOfProjectText = new Text(this, SWT.BORDER);
 		fd_pathOfProjectText.bottom = new FormAttachment(componentOfProjectText, -22);
-		fd_pathOfProjectText.right = new FormAttachment(componentOfProjectText, 0, SWT.RIGHT);
 		FormData fd_componentOfProjectText = new FormData();
+		fd_componentOfProjectText.left = new FormAttachment(lblPackagePathOf, 6);
 		fd_componentOfProjectText.bottom = new FormAttachment(0, 79);
-		fd_componentOfProjectText.right = new FormAttachment(0, 656);
 		fd_componentOfProjectText.top = new FormAttachment(0, 57);
-		fd_componentOfProjectText.left = new FormAttachment(0, 180);
 		componentOfProjectText.setLayoutData(fd_componentOfProjectText);
 		
 		Button btnPath = new Button(this, SWT.NONE);
+		fd_componentOfProjectText.right = new FormAttachment(btnPath, -6);
 		fd_btnNewButton.bottom = new FormAttachment(btnPath, -22);
 		FormData fd_btnPath = new FormData();
 		fd_btnPath.top = new FormAttachment(lblPackagePathOf, -5, SWT.TOP);
-		fd_btnPath.left = new FormAttachment(btnNewButton, 0, SWT.LEFT);
 		btnPath.setLayoutData(fd_btnPath);
 		btnPath.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -167,13 +165,16 @@ public class InnerCompatibilityComposite extends Composite {
 	    }
 		
 		Button CompatibilityBtn = new Button(this, SWT.NONE);
-		fd_btnNewButton.right = new FormAttachment(CompatibilityBtn, -48);
-		fd_btnPath.right = new FormAttachment(CompatibilityBtn, -48);
+		fd_btnPath.left = new FormAttachment(CompatibilityBtn, -100, SWT.LEFT);
+		fd_btnPath.right = new FormAttachment(CompatibilityBtn, -22);
+		fd_btnNewButton.left = new FormAttachment(CompatibilityBtn, -100, SWT.LEFT);
+		fd_btnNewButton.right = new FormAttachment(CompatibilityBtn, -22);
+		fd_btnNewButton.right = new FormAttachment(CompatibilityBtn, -22);
 		FormData fd_CompatibilityBtn = new FormData();
-		fd_CompatibilityBtn.bottom = new FormAttachment(0, 82);
-		fd_CompatibilityBtn.right = new FormAttachment(0, 863);
-		fd_CompatibilityBtn.top = new FormAttachment(0, 13);
-		fd_CompatibilityBtn.left = new FormAttachment(0, 784);
+		fd_CompatibilityBtn.left = new FormAttachment(uncompatibilityTable, -79);
+		fd_CompatibilityBtn.bottom = new FormAttachment(lblPackagePathOf, 0, SWT.BOTTOM);
+		fd_CompatibilityBtn.right = new FormAttachment(uncompatibilityTable, 0, SWT.RIGHT);
+		fd_CompatibilityBtn.top = new FormAttachment(0, 10);
 		CompatibilityBtn.setLayoutData(fd_CompatibilityBtn);
 		CompatibilityBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -219,7 +220,7 @@ public class InnerCompatibilityComposite extends Composite {
 		
 		ResultText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
 		FormData fd_ResultText = new FormData();
-		fd_ResultText.right = new FormAttachment(0, 228);
+		fd_ResultText.right = new FormAttachment(0, 262);
 		fd_ResultText.top = new FormAttachment(0, 91);
 		fd_ResultText.left = new FormAttachment(0, 10);
 		ResultText.setLayoutData(fd_ResultText);

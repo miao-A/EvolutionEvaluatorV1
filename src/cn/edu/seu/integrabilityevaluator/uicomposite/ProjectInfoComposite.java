@@ -80,6 +80,7 @@ public class ProjectInfoComposite extends Composite {
 		
 		Label label_1 = new Label(this, SWT.NONE);
 		FormData fd_label_1 = new FormData();
+		fd_label_1.right = new FormAttachment(lblProjectInformation, 0, SWT.RIGHT);
 		fd_label_1.top = new FormAttachment(0, 77);
 		fd_label_1.left = new FormAttachment(0, 83);
 		label_1.setLayoutData(fd_label_1);
@@ -91,12 +92,13 @@ public class ProjectInfoComposite extends Composite {
 		fd_projectPathText.bottom = new FormAttachment(projectNameText, -7);
 		FormData fd_projectNameText = new FormData();
 		fd_projectNameText.right = new FormAttachment(100, -314);
-		fd_projectNameText.left = new FormAttachment(label_1, 83);
+		fd_projectNameText.left = new FormAttachment(label_1, 5);
 		fd_projectNameText.top = new FormAttachment(0, 74);
 		projectNameText.setLayoutData(fd_projectNameText);
 		
 		Label label_2 = new Label(this, SWT.NONE);
 		FormData fd_label_2 = new FormData();
+		fd_label_2.right = new FormAttachment(lblProjectInformation, 0, SWT.RIGHT);
 		fd_label_2.top = new FormAttachment(0, 105);
 		fd_label_2.left = new FormAttachment(0, 83);
 		label_2.setLayoutData(fd_label_2);
@@ -107,13 +109,14 @@ public class ProjectInfoComposite extends Composite {
 		fd_projectNameText.bottom = new FormAttachment(versionText, -5);
 		FormData fd_versionText = new FormData();
 		fd_versionText.right = new FormAttachment(100, -314);
-		fd_versionText.left = new FormAttachment(label_2, 73);
+		fd_versionText.left = new FormAttachment(label_2, 5);
 		versionText.setLayoutData(fd_versionText);
 		
 		Label lblNewLabel = new Label(this, SWT.NONE);
 		FormData fd_lblNewLabel = new FormData();
-		fd_lblNewLabel.right = new FormAttachment(lblProjectInformation, 1, SWT.RIGHT);
+		
 		fd_lblNewLabel.left = new FormAttachment(0, 84);
+		fd_lblNewLabel.right = new FormAttachment(lblProjectInformation, 0, SWT.RIGHT);
 		lblNewLabel.setLayoutData(fd_lblNewLabel);
 		//lblNewLabel.setText("\u7248\u672C\u4FE1\u606F\uFF1A");
 		lblNewLabel.setText("Project description:");

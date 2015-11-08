@@ -92,34 +92,30 @@ public class VersionCompatibilityComposite extends Composite {
 		
 		Label label = new Label(this, SWT.NONE);
 		FormData fd_label = new FormData();
-		fd_label.right = new FormAttachment(0, 89);
-		fd_label.top = new FormAttachment(0, 24);
 		fd_label.left = new FormAttachment(0, 10);
+		fd_label.top = new FormAttachment(0, 24);
 		label.setLayoutData(fd_label);
 		label.setText("Project path1:");
 		
 		Label label_1 = new Label(this, SWT.NONE);
 		FormData fd_label_1 = new FormData();
-		fd_label_1.right = new FormAttachment(0, 89);
-		fd_label_1.top = new FormAttachment(0, 62);
+		fd_label_1.right = new FormAttachment(label, 0, SWT.RIGHT);
 		fd_label_1.left = new FormAttachment(0, 10);
+		fd_label_1.top = new FormAttachment(0, 62);
 		label_1.setLayoutData(fd_label_1);
 		label_1.setText("Project path2:");
 		
 		oldComponentText = new Text(this, SWT.BORDER);
+		fd_label.right = new FormAttachment(oldComponentText, -6);
 		FormData fd_oldComponentText = new FormData();
-		fd_oldComponentText.bottom = new FormAttachment(0, 43);
-		fd_oldComponentText.right = new FormAttachment(0, 692);
 		fd_oldComponentText.top = new FormAttachment(0, 21);
-		fd_oldComponentText.left = new FormAttachment(0, 92);
+		fd_oldComponentText.left = new FormAttachment(0, 128);
 		oldComponentText.setLayoutData(fd_oldComponentText);
 		
 		Button btnNewButton = new Button(this, SWT.NONE);
+		fd_oldComponentText.right = new FormAttachment(btnNewButton, -6);
 		FormData fd_btnNewButton = new FormData();
-		fd_btnNewButton.bottom = new FormAttachment(0, 43);
-		fd_btnNewButton.right = new FormAttachment(0, 766);
 		fd_btnNewButton.top = new FormAttachment(0, 21);
-		fd_btnNewButton.left = new FormAttachment(0, 698);
 		btnNewButton.setLayoutData(fd_btnNewButton);
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -142,19 +138,17 @@ public class VersionCompatibilityComposite extends Composite {
 		btnNewButton.setText("Select...");
 		
 		newComponentText = new Text(this, SWT.BORDER);
+		fd_oldComponentText.bottom = new FormAttachment(newComponentText, -16);
 		FormData fd_newComponentText = new FormData();
-		fd_newComponentText.bottom = new FormAttachment(0, 81);
-		fd_newComponentText.right = new FormAttachment(0, 692);
 		fd_newComponentText.top = new FormAttachment(0, 59);
-		fd_newComponentText.left = new FormAttachment(0, 92);
+		fd_newComponentText.left = new FormAttachment(0,128);
 		newComponentText.setLayoutData(fd_newComponentText);
 		
 		Button btnSelect = new Button(this, SWT.NONE);
+		fd_btnNewButton.bottom = new FormAttachment(btnSelect, -16);
+		fd_newComponentText.right = new FormAttachment(btnSelect, -6);
 		FormData fd_btnSelect = new FormData();
-		fd_btnSelect.bottom = new FormAttachment(0, 81);
-		fd_btnSelect.right = new FormAttachment(0, 766);
 		fd_btnSelect.top = new FormAttachment(0, 59);
-		fd_btnSelect.left = new FormAttachment(0, 698);
 		btnSelect.setLayoutData(fd_btnSelect);
 		btnSelect.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -199,12 +193,16 @@ public class VersionCompatibilityComposite extends Composite {
 	    	tableColumn.pack();	    	
 	    }
 		
-		Button CompatibilityBtn = new Button(this, SWT.NONE);		
+		Button CompatibilityBtn = new Button(this, SWT.NONE);
+		fd_btnSelect.left = new FormAttachment(CompatibilityBtn, -74, SWT.LEFT);
+		fd_btnSelect.right = new FormAttachment(CompatibilityBtn, -6);
+		fd_btnNewButton.left = new FormAttachment(CompatibilityBtn, -74, SWT.LEFT);
+		fd_btnNewButton.right = new FormAttachment(CompatibilityBtn, -6);
 		FormData fd_CompatibilityBtn = new FormData();
-		fd_CompatibilityBtn.bottom = new FormAttachment(0, 81);
-		fd_CompatibilityBtn.right = new FormAttachment(0, 867);
-		fd_CompatibilityBtn.top = new FormAttachment(0, 12);
-		fd_CompatibilityBtn.left = new FormAttachment(0, 788);
+		fd_CompatibilityBtn.left = new FormAttachment(changeTypeTable, -79);
+		fd_CompatibilityBtn.bottom = new FormAttachment(changeTypeTable, -30);
+		fd_CompatibilityBtn.top = new FormAttachment(0, 21);
+		fd_CompatibilityBtn.right = new FormAttachment(changeTypeTable, 0, SWT.RIGHT);
 		CompatibilityBtn.setLayoutData(fd_CompatibilityBtn);
 		CompatibilityBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -599,6 +597,7 @@ public class VersionCompatibilityComposite extends Composite {
 		CompatibilityBtn.setText("Analysis");
 		
 		ResultText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
+		fd_newComponentText.bottom = new FormAttachment(ResultText, -10);
 		FormData fd_ResultText = new FormData();
 		fd_ResultText.right = new FormAttachment(0, 467);
 		fd_ResultText.top = new FormAttachment(0, 91);
