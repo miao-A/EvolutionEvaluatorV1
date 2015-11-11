@@ -44,6 +44,7 @@ import org.eclipse.swt.custom.StyledText;
 import org.eclipse.jface.text.TextViewer;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class SubstitutabilityMutiVersionShowComposite extends Composite {
 
@@ -77,6 +78,7 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		
 		
 		final CTabFolder tabFolder = new CTabFolder(this, SWT.BORDER);
+		tabFolder.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		fd_lblNull.right = new FormAttachment(tabFolder, 71);
 		fd_lblNull.left = new FormAttachment(tabFolder, 0, SWT.LEFT);
 		FormData fd_tabFolder = new FormData();
@@ -97,6 +99,9 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		
 		final CTabItem classChangeDiffTabItem = new CTabItem(tabFolder, SWT.NONE);
 		classChangeDiffTabItem.setText("Version changes information");
+		
+		final StyledText styledText = new StyledText(tabFolder, SWT.BORDER|SWT.H_SCROLL|SWT.V_SCROLL);
+		classChangeDiffTabItem.setControl(styledText);
 		
 		final Combo version1Combo = new Combo(this, SWT.NONE);
 		FormData fd_version1Combo = new FormData();
@@ -167,8 +172,7 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 					
 					ChartComposite chartComposite = new ChartComposite(tabFolder, SWT.NONE, chart, true);
 					changeTabItem.setControl(chartComposite);
-					chartComposite.setVisible(true);
-					
+					chartComposite.setVisible(true);				
 				
 					System.out.println("chart print");
 					
@@ -190,7 +194,9 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 				String version1 = version1Combo.getText();
 				String version2 = version2Combo.getText();
 				String projName = projectSelectCombo.getText();
-				setCompose(tabFolder,classChangeDiffTabItem,projName,version1,version2);
+				//setCompose(tabFolder,classChangeDiffTabItem,projName,version1,version2);
+				styledText.setText(getDiffText(projName,version1,version2));
+				textAddColor(styledText);
 				
 			}
 		});
@@ -211,8 +217,9 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 				String version1 = version1Combo.getText();
 				String version2 = version2Combo.getText();
 				String projName = projectSelectCombo.getText();
-				setCompose(tabFolder,classChangeDiffTabItem,projName,version1,version2);
-				
+				//setCompose(tabFolder,classChangeDiffTabItem,projName,version1,version2);
+				styledText.setText(getDiffText(projName,version1,version2));
+				textAddColor(styledText);
 			}
 		});
 		
@@ -388,6 +395,165 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 			mcDiffText.append(textString+"\n\n");								
 			textAddColor(mcDiffText);	
 			System.out.println("diff print");
+					
+		}		
+	}
+	
+private String getDiffText(String projName,String version1,String version2) {		
+		{	
+			
+			
+			final SubstitutabilityDiff	changeabilityDiff = new SubstitutabilityDiff(projName);
+			
+			String textString = version1+" compare with " + version2;
+			
+			HashMap<String, HashMap<String,List<String>>> diffInfluenceMap = changeabilityDiff.diffInProject(version1, version2);
+			
+			for (String pkgName : diffInfluenceMap.keySet()) {
+				
+				HashMap<String, List<String>> map = diffInfluenceMap.get(pkgName);
+				if (map.containsKey("+import")||map.containsKey("+export")||map.containsKey("-import")||map.containsKey("-export")) {
+					textString += "\npackage: " + pkgName;
+					
+					if (map.containsKey("+import")) {									
+						textString += "\n+import \t"+map.get("+import").size();
+						for (String string : map.get("+import")) {
+							textString += "\nName:\t"+string;
+						}
+					}
+					
+					if (map.containsKey("-import")) {									
+						textString += "\n-import \t"+map.get("-import").size();
+						for (String string : map.get("-import")) {
+							textString += "\nName:\t"+string;
+						}
+					}
+					
+					if (map.containsKey("+export")) {									
+						textString += "\n+export \t"+map.get("+export").size();
+						for (String string : map.get("+export")) {
+							textString += "\nName:\t"+string;
+						}
+					}
+					
+					if (map.containsKey("-export")) {									
+						textString += "\n-export \t"+map.get("-export").size();
+						for (String string : map.get("-export")) {
+							textString += "\nName:\t"+string;
+						}
+					}
+					
+					
+				}else {
+					textString += "\nNo effect";
+				}							
+			}
+			
+			if (diffInfluenceMap.size()==0) {
+				textString += "\nNo effect";
+			}
+			textString +="\n\n";								
+			
+		}		
+		
+		{
+			
+			
+			
+			ProjectInfoConnector projectInfoConnector = new ProjectInfoConnector();
+			ArrayList<String> list = projectInfoConnector.getVersion(projName);
+			final SubstitutabilityDiff	changeabilityDiff = new SubstitutabilityDiff(projName);
+			String textString2 = version1+" compare with " + version2;
+			
+			HashMap<String, HashMap<String,List<String>>> diffInfluenceMap = changeabilityDiff.diffInProject(version1, version2);
+			HashMap<String, HashMap<String,List<String>>> diffmap = changeabilityDiff.moreDiffInProject(version1, version2);
+			
+			boolean noEffect = true;
+
+			for (String pkgName : diffmap.keySet()) {
+				
+				HashMap<String, List<String>> influenceMap = new HashMap<>();
+				if (diffInfluenceMap.containsKey(pkgName)) {
+					influenceMap = diffInfluenceMap.get(pkgName);
+				}
+				 
+				
+				HashMap<String, List<String>> map = diffmap.get(pkgName);
+				if (map.containsKey("+import")||map.containsKey("+export")||map.containsKey("-import")||map.containsKey("-export")) {
+					textString2 += "\npackage: " + pkgName;
+					
+					if (map.containsKey("+import")) {									
+						textString2 += "\n+import \t"+map.get("+import").size();
+						for (String string : map.get("+import")) {
+							
+							
+							if (influenceMap.containsKey("+import")) {
+								for (String influString : influenceMap.get("+import")) {
+									if (string.startsWith(influString)) {
+										string = "*"+string;
+									}
+								}
+							}
+							textString2 += "\nName:\t"+string;
+						}
+					}
+					
+					if (map.containsKey("-import")) {									
+						textString2 += "\n-import \t"+map.get("-import").size();
+						for (String string : map.get("-import")) {
+							
+							if (influenceMap.containsKey("-import")) {
+								for (String influString : influenceMap.get("-import")) {
+									if (string.startsWith(influString)) {
+										string = "*"+string;
+									}
+								}
+							}
+							textString2 += "\nName:\t"+string;
+						}
+					}
+					
+					if (map.containsKey("+export")) {									
+						textString2 += "\n+export \t"+map.get("+export").size();
+						for (String string : map.get("+export")) {
+							
+							if (influenceMap.containsKey("+export")) {
+								for (String influString : influenceMap.get("+export")) {
+									if (string.startsWith(influString)) {
+										string = "*"+string;
+									}
+								}
+							}
+							
+							textString2 += "\nName:\t"+string;
+						}
+					}
+					
+					if (map.containsKey("-export")) {									
+						textString2 += "\n-export \t"+map.get("-export").size();
+						for (String string : map.get("-export")) {
+							
+							if (influenceMap.containsKey("-export")) {
+								for (String influString : influenceMap.get("-export")) {
+									if (string.startsWith(influString)) {
+										string = "*"+string;
+									}
+								}
+							}
+							textString2 += "\nName:\t"+string;
+						}
+					}
+					noEffect = false;
+				}							
+			}
+			
+			if (diffmap.size()==0||noEffect) {
+				textString2 += "\nNo effect";
+			}
+			
+			textString2 += "\n\n";	
+			
+			return textString2;			
 					
 		}		
 	}

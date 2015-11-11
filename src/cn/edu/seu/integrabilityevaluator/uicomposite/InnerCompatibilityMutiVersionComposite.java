@@ -269,18 +269,18 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		ResultOneText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
 		fd_uncompatibilityTableOne.top = new FormAttachment(ResultOneText, 6);
 		FormData fd_ResultOneText = new FormData();
-		fd_ResultOneText.right = new FormAttachment(0, 253);
+		fd_ResultOneText.right = new FormAttachment(0, 375);
 		fd_ResultOneText.top = new FormAttachment(0, 104);
 		fd_ResultOneText.left = new FormAttachment(0, 10);
 		ResultOneText.setLayoutData(fd_ResultOneText);
 		
 		ResultTwoText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
-		fd_uncompatibilityTableTwo.top = new FormAttachment(0, 396);
 		fd_uncompatibilityTableOne.bottom = new FormAttachment(ResultTwoText, -27);
+		fd_uncompatibilityTableTwo.top = new FormAttachment(0, 396);
 		FormData fd_ResultTwoText = new FormData();
-		fd_ResultTwoText.bottom = new FormAttachment(uncompatibilityTableTwo, -6);
-		fd_ResultTwoText.left = new FormAttachment(lblProjectPath, 0, SWT.LEFT);
 		fd_ResultTwoText.right = new FormAttachment(ResultOneText, 0, SWT.RIGHT);
+		fd_ResultTwoText.left = new FormAttachment(0, 10);
+		fd_ResultTwoText.bottom = new FormAttachment(uncompatibilityTableTwo, -6);
 		fd_ResultTwoText.top = new FormAttachment(0, 368);
 		ResultTwoText.setLayoutData(fd_ResultTwoText);
 	}

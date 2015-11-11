@@ -220,9 +220,9 @@ public class InnerCompatibilityComposite extends Composite {
 		
 		ResultText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
 		FormData fd_ResultText = new FormData();
-		fd_ResultText.right = new FormAttachment(0, 262);
-		fd_ResultText.top = new FormAttachment(0, 91);
 		fd_ResultText.left = new FormAttachment(0, 10);
+		fd_ResultText.right = new FormAttachment(0, 381);
+		fd_ResultText.top = new FormAttachment(0, 91);
 		ResultText.setLayoutData(fd_ResultText);
 	}
 

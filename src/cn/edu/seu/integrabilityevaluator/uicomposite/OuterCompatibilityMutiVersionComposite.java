@@ -138,7 +138,6 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 		jaruncompatibilityTable1 = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_jaruncompatibilityTable1 = new FormData();
 		fd_jaruncompatibilityTable1.right = new FormAttachment(100, -10);
-		fd_jaruncompatibilityTable1.top = new FormAttachment(0, 183);
 		fd_jaruncompatibilityTable1.left = new FormAttachment(0, 10);
 		jaruncompatibilityTable1.setLayoutData(fd_jaruncompatibilityTable1);
 		jaruncompatibilityTable1.setLinesVisible(true);
@@ -390,9 +389,10 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 		btnPath.setText("Select...");
 		
 		resultOneText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
+		fd_jaruncompatibilityTable1.top = new FormAttachment(resultOneText, 10);
 		fd_label_3.bottom = new FormAttachment(resultOneText, -6);
 		FormData fd_resultOneText = new FormData();
-		fd_resultOneText.right = new FormAttachment(0, 344);
+		fd_resultOneText.right = new FormAttachment(0, 474);
 		fd_resultOneText.top = new FormAttachment(0, 150);
 		fd_resultOneText.left = new FormAttachment(0, 10);
 		resultOneText.setLayoutData(fd_resultOneText);
@@ -400,9 +400,9 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 		resultTwoText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
 		fd_jaruncompatibilityTable1.bottom = new FormAttachment(resultTwoText, -6);
 		FormData fd_resultTwoText = new FormData();
-		fd_resultTwoText.bottom = new FormAttachment(jaruncompatibilityTable2, -6);
 		fd_resultTwoText.right = new FormAttachment(resultOneText, 0, SWT.RIGHT);
 		fd_resultTwoText.left = new FormAttachment(0, 10);
+		fd_resultTwoText.bottom = new FormAttachment(jaruncompatibilityTable2, -6);
 		resultTwoText.setLayoutData(fd_resultTwoText);
 
 		

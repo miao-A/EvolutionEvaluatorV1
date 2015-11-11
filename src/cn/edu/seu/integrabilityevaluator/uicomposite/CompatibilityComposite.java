@@ -22,19 +22,19 @@ public class CompatibilityComposite extends Composite {
 		
 		CTabFolder tabFolder = new CTabFolder(this, SWT.BORDER);
 		FormData fd_tabFolder = new FormData();
-		fd_tabFolder.bottom = new FormAttachment(100, -10);
-		fd_tabFolder.right = new FormAttachment(100, -10);
+		fd_tabFolder.bottom = new FormAttachment(100);
+		fd_tabFolder.right = new FormAttachment(100);
 		fd_tabFolder.top = new FormAttachment(0);
 		fd_tabFolder.left = new FormAttachment(0);
 		tabFolder.setLayoutData(fd_tabFolder);
 		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		
-		CTabItem tabItem = new CTabItem(tabFolder, SWT.NONE);
+		CTabItem tbtmInnerCompatibility = new CTabItem(tabFolder, SWT.NONE);
 		//tabItem.setText("\u5185\u90E8\u517C\u5BB9\u6027");
-		tabItem.setText("Inner compatibility");
+		tbtmInnerCompatibility.setText("Inner compatibility  ");
 		
 		Composite composite = new InnerCompatibilityComposite(tabFolder, SWT.NONE);
-		tabItem.setControl(composite);
+		tbtmInnerCompatibility.setControl(composite);
 		
 		CTabItem tabItem_2 = new CTabItem(tabFolder, SWT.NONE);
 		tabItem_2.setText("Outer compatibility");
@@ -48,7 +48,7 @@ public class CompatibilityComposite extends Composite {
 /*		Composite composite_1 = new VersionCompatibilityComposite(tabFolder, SWT.NONE);
 		tabItem_1.setControl(composite_1);*/
 		
-		tabFolder.setSelection(tabItem);
+		tabFolder.setSelection(tbtmInnerCompatibility);
 
 	}
 

@@ -21,6 +21,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 public class ProjectInfoComposite extends Composite {
 	private Text projectPathText;
@@ -35,9 +36,11 @@ public class ProjectInfoComposite extends Composite {
 	 */
 	public ProjectInfoComposite(Composite parent, int style) {
 		super(parent, style);
+		setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		setLayout(new FormLayout());
 		
 		Label lblProjectInformation = new Label(this, SWT.NONE);
+		lblProjectInformation.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		FormData fd_lblProjectInformation = new FormData();
 		fd_lblProjectInformation.top = new FormAttachment(0, 47);
 		fd_lblProjectInformation.left = new FormAttachment(0, 83);
@@ -79,6 +82,7 @@ public class ProjectInfoComposite extends Composite {
 		fileReadBtn.setText("Select...");
 		
 		Label label_1 = new Label(this, SWT.NONE);
+		label_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		FormData fd_label_1 = new FormData();
 		fd_label_1.right = new FormAttachment(lblProjectInformation, 0, SWT.RIGHT);
 		fd_label_1.top = new FormAttachment(0, 77);
@@ -97,6 +101,7 @@ public class ProjectInfoComposite extends Composite {
 		projectNameText.setLayoutData(fd_projectNameText);
 		
 		Label label_2 = new Label(this, SWT.NONE);
+		label_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		FormData fd_label_2 = new FormData();
 		fd_label_2.right = new FormAttachment(lblProjectInformation, 0, SWT.RIGHT);
 		fd_label_2.top = new FormAttachment(0, 105);
@@ -113,6 +118,7 @@ public class ProjectInfoComposite extends Composite {
 		versionText.setLayoutData(fd_versionText);
 		
 		Label lblNewLabel = new Label(this, SWT.NONE);
+		lblNewLabel.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		FormData fd_lblNewLabel = new FormData();
 		
 		fd_lblNewLabel.left = new FormAttachment(0, 84);
@@ -136,7 +142,7 @@ public class ProjectInfoComposite extends Composite {
 		FormData fd_btnSubmit = new FormData();
 		fd_btnSubmit.top = new FormAttachment(versionInfoText, 42);
 		fd_btnSubmit.left = new FormAttachment(0, 382);
-		fd_btnSubmit.right = new FormAttachment(100, -451);
+		fd_btnSubmit.right = new FormAttachment(100, -436);
 		btnSubmit.setLayoutData(fd_btnSubmit);
 		btnSubmit.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -152,6 +158,7 @@ public class ProjectInfoComposite extends Composite {
 							1);
 					dialog.open();
 				}else if (projectNameText.getText().isEmpty()||versionText.getText().isEmpty()) {
+					//MessageDialog dialog = new MessageDialog(parentShell, dialogTitle, dialogTitleImage, dialogMessage, dialogImageType, dialogButtonLabels, defaultIndex)
 					MessageDialog dialog = new MessageDialog(Display.getCurrent().getActiveShell(),//shell窗口
 							"WARNNING",
 							null,
@@ -176,6 +183,16 @@ public class ProjectInfoComposite extends Composite {
 					ProjectParser projectParser = new ProjectParser(projectPath,projectName,version);
 //					projectParser.parser();
 					projectParser.runDectors();
+					
+					MessageDialog dialog = new MessageDialog(Display.getCurrent().getActiveShell(),//shell窗口
+							"SUCESS",
+							null,
+							"Analysis Over! ",
+							//"解析完成",
+							MessageDialog.INFORMATION,
+							new String[]{"OK"},
+							1);
+					dialog.open();	
 				}			
 			}
 		});
