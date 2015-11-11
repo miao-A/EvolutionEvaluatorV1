@@ -122,12 +122,12 @@ public class IntegrationApp {
 		composite.setLayout(compositeSL);		
 		
 		projectInfoComposite = new ProjectInfoComposite(composite, SWT.NONE);
-		compatibilityComposite = new CompatibilityComposite(composite, SWT.NONE);
-		extensibilityComposite = new ExtensibilityComposite(composite, SWT.NONE);
-		changeabilityComposite = new SubstitutabilityComposite(composite, SWT.NONE);		
-		changeMutiVersionShowComposite = new SubstitutabilityMutiVersionShowComposite(composite, SWT.NONE);
-		extensiMutiVerionShowComposite = new ExtensiMutiVerionShowComposite(composite, SWT.NONE);
-		compatibilityMutiVersionComposite = new CompatibilityMutiVersionComposite(composite, SWT.NONE);
+		//compatibilityComposite = new CompatibilityComposite(composite, SWT.NONE);
+		//extensibilityComposite = new ExtensibilityComposite(composite, SWT.NONE);
+		//changeabilityComposite = new SubstitutabilityComposite(composite, SWT.NONE);		
+		//changeMutiVersionShowComposite = new SubstitutabilityMutiVersionShowComposite(composite, SWT.NONE);
+		//extensiMutiVerionShowComposite = new ExtensiMutiVerionShowComposite(composite, SWT.NONE);
+		//compatibilityMutiVersionComposite = new CompatibilityMutiVersionComposite(composite, SWT.NONE);
 		
 		compositeSL.topControl = projectInfoComposite;
 		composite.layout();
@@ -142,25 +142,31 @@ public class IntegrationApp {
 					compositeSL.topControl = projectInfoComposite;
 					setShellTitle("");
 				}else if (event.widget == extensibilityItem) {	
+					extensibilityComposite = new ExtensibilityComposite(composite, SWT.NONE);
 					compositeSL.topControl = extensibilityComposite;
 					extensibilityComposite.reloadProject();
 					setShellTitle(" - Measurement of Extensibility");
-				}else if (event.widget == substitutabilityItem) {	
+				}else if (event.widget == substitutabilityItem) {
+					changeabilityComposite = new SubstitutabilityComposite(composite, SWT.NONE);
 					compositeSL.topControl = changeabilityComposite;
 					changeabilityComposite.reloadProject();
 					setShellTitle(" - Measurement of Substitutability");
-				}else if (event.widget == compatibilityItem) {	
+				}else if (event.widget == compatibilityItem) {
+					compatibilityComposite = new CompatibilityComposite(composite, SWT.NONE);
 					compositeSL.topControl = compatibilityComposite;
 					setShellTitle(" - Measurement of Compatibility");
 				}else if (event.widget == extensibilityMutiItem) {	
+					extensiMutiVerionShowComposite = new ExtensiMutiVerionShowComposite(composite, SWT.NONE);
 					compositeSL.topControl = extensiMutiVerionShowComposite;
 					extensiMutiVerionShowComposite.reloadProject();
 					setShellTitle(" - Evaluation of Extensibility under Evoluation");
-				}else if (event.widget == substitutabilityMutiItem) {	
+				}else if (event.widget == substitutabilityMutiItem) {
+					changeMutiVersionShowComposite = new SubstitutabilityMutiVersionShowComposite(composite, SWT.NONE);
 					compositeSL.topControl = changeMutiVersionShowComposite;
 					changeMutiVersionShowComposite.reloadProject();
 					setShellTitle(" - Evaluation of Substitutability under Evoluation");
-				}else if (event.widget == compatibilityMutiItem) {	
+				}else if (event.widget == compatibilityMutiItem) {
+					compatibilityMutiVersionComposite = new CompatibilityMutiVersionComposite(composite, SWT.NONE);
 					compositeSL.topControl = compatibilityMutiVersionComposite;
 					setShellTitle(" - Evaluation of Compatibility under Evoluation");
 				}						
