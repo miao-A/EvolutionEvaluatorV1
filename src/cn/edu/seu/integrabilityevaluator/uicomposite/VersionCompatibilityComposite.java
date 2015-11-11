@@ -39,8 +39,8 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
 
 public class VersionCompatibilityComposite extends Composite {
-	private Text oldComponentText;
-	private Text newComponentText;
+	private Text pathOfOldProjectText;
+	private Text pathOfNewProjectText;
 	private Table changeTypeTable;
 	private TableEditor editor = null;
 	private final List<MyModel> myModels = new LinkedList<>();
@@ -105,12 +105,12 @@ public class VersionCompatibilityComposite extends Composite {
 		label_1.setLayoutData(fd_label_1);
 		label_1.setText("Project path2:");
 		
-		oldComponentText = new Text(this, SWT.BORDER);
-		fd_label.right = new FormAttachment(oldComponentText, -6);
+		pathOfOldProjectText = new Text(this, SWT.BORDER);
+		fd_label.right = new FormAttachment(pathOfOldProjectText, -6);
 		FormData fd_oldComponentText = new FormData();
 		fd_oldComponentText.top = new FormAttachment(0, 21);
 		fd_oldComponentText.left = new FormAttachment(0, 128);
-		oldComponentText.setLayoutData(fd_oldComponentText);
+		pathOfOldProjectText.setLayoutData(fd_oldComponentText);
 		
 		Button btnNewButton = new Button(this, SWT.NONE);
 		fd_oldComponentText.right = new FormAttachment(btnNewButton, -6);
@@ -129,7 +129,7 @@ public class VersionCompatibilityComposite extends Composite {
 				folderDialog.setFilterPath("D:/ProjectOfHW/junit/junit3.4");//"D:/ProjectOfHW/junit/junit3.4/src/junit/runner"
 				folderDialog.open();
 				
-				oldComponentText.setText(folderDialog.getFilterPath());
+				pathOfOldProjectText.setText(folderDialog.getFilterPath());
 				
 			}
 			
@@ -137,12 +137,12 @@ public class VersionCompatibilityComposite extends Composite {
 		});
 		btnNewButton.setText("Select...");
 		
-		newComponentText = new Text(this, SWT.BORDER);
-		fd_oldComponentText.bottom = new FormAttachment(newComponentText, -16);
+		pathOfNewProjectText = new Text(this, SWT.BORDER);
+		fd_oldComponentText.bottom = new FormAttachment(pathOfNewProjectText, -16);
 		FormData fd_newComponentText = new FormData();
 		fd_newComponentText.top = new FormAttachment(0, 59);
 		fd_newComponentText.left = new FormAttachment(0,128);
-		newComponentText.setLayoutData(fd_newComponentText);
+		pathOfNewProjectText.setLayoutData(fd_newComponentText);
 		
 		Button btnSelect = new Button(this, SWT.NONE);
 		fd_btnNewButton.bottom = new FormAttachment(btnSelect, -16);
@@ -162,7 +162,7 @@ public class VersionCompatibilityComposite extends Composite {
 				folderDialog.setFilterPath("D:/ProjectOfHW/junit/junit3.5");
 				folderDialog.open();
 				
-				newComponentText.setText(folderDialog.getFilterPath());
+				pathOfNewProjectText.setText(folderDialog.getFilterPath());
 				
 			}
 		});
@@ -211,8 +211,8 @@ public class VersionCompatibilityComposite extends Composite {
 				changeTypeTable.removeAll();				
 				myModels.clear();
 				
-				String oldPathOfComponet = oldComponentText.getText(); // "D:/ProjectOfHW/jEditor/jEditor0.4.1/src/org/jeditor/gui";
-				String newPathOfComponet = newComponentText.getText(); //"D:/ProjectOfHW/jEditor/jEditor0.4.2/src/org/jeditor/gui";
+				String oldPathOfComponet = pathOfOldProjectText.getText(); // "D:/ProjectOfHW/jEditor/jEditor0.4.1/src/org/jeditor/gui";
+				String newPathOfComponet = pathOfNewProjectText.getText(); //"D:/ProjectOfHW/jEditor/jEditor0.4.2/src/org/jeditor/gui";
 								
 				Compatibility compatibility = new Compatibility(oldPathOfComponet, newPathOfComponet);
 				
@@ -604,7 +604,22 @@ public class VersionCompatibilityComposite extends Composite {
 		fd_ResultText.left = new FormAttachment(0, 10);
 		ResultText.setLayoutData(fd_ResultText);
 	}
+	
+	public void setProjectPath1(String string){
+		pathOfOldProjectText.setText(string);
+	}
 
+	public String getProjectPath1(){
+		return pathOfOldProjectText.getText();
+	}
+
+	public void setProjectPath2(String string){
+		pathOfNewProjectText.setText(string);
+	}
+	
+	public String getProjectPath2(){
+		return pathOfNewProjectText.getText();
+	}
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components

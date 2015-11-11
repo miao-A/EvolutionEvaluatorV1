@@ -62,7 +62,7 @@ public class IntegrationApp {
 	 */
 	public void open() {
 		Display display = Display.getDefault();
-		shell = new Shell(SWT.SHELL_TRIM | SWT.PRIMARY_MODAL);
+		shell = new Shell(SWT.SHELL_TRIM | SWT.ON_TOP);
 		shell.setSize(931, 658);
 		shell.setText("Integration Evaluator");
 		shell.setLayout(new FormLayout());

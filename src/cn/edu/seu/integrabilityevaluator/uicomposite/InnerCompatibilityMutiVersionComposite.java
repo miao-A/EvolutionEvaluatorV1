@@ -43,12 +43,9 @@ import org.eclipse.swt.layout.FormAttachment;
 
 public class InnerCompatibilityMutiVersionComposite extends Composite {
 	private Text pathOfOldProjectText;
-	private Table uncompatibilityTableOne;
-
-	private TableEditor editor = null;
-	
-	String strings = new String();
 	private Text pathOfNewProjectText;
+	private Table uncompatibilityTableOne;
+	private TableEditor editor = null;
 	private Table uncompatibilityTableTwo;
 	private Text ResultOneText;
 	private Text ResultTwoText;
@@ -285,6 +282,23 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		ResultTwoText.setLayoutData(fd_ResultTwoText);
 	}
 
+	public void setProjectPath1(String string){
+		pathOfOldProjectText.setText(string);
+	}
+
+	public String getProjectPath1(){
+		return pathOfOldProjectText.getText();
+	}
+
+	public void setProjectPath2(String string){
+		pathOfNewProjectText.setText(string);
+	}
+	
+	public String getProjectPath2(){
+		return pathOfNewProjectText.getText();
+	}
+
+	
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components

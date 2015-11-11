@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 import org.eclipse.jdt.internal.compiler.batch.Main;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
@@ -23,6 +24,7 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
+
 
 
 
@@ -139,7 +141,7 @@ public class WelcomeDialog extends Dialog {
 					shell.dispose();
 				}else if (event.widget == integrationEvalButton) {
 					try {
-						shell.setVisible(false);
+						//shell.setVisible(false);
 						IntegrationApp window = new IntegrationApp();
 						//IntergrationDialog window  = new IntergrationDialog(shell, SWT.NONE);
 						window.open();
@@ -150,8 +152,9 @@ public class WelcomeDialog extends Dialog {
 				}else if (event.widget == complexityButton) {
 					try {
 						//shell.setVisible(false);
-						
-						
+						IntegrationApp window = new IntegrationApp();
+						//IntergrationDialog window  = new IntergrationDialog(shell, SWT.NONE);
+						window.open();
 						//shell.setVisible(true);						
 					} catch (Exception e) {
 						e.printStackTrace();

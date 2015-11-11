@@ -301,11 +301,16 @@ public class OuterCompatibilityComposite extends Composite {
 		});
 		btnSelect_1.setText("Select...");
 		
-		
-		
-		
+	}
+	
+	public void setProjectPath(String string){
+		pathOfProjectText.setText(string);
 	}
 
+	public String getProjectPath(){
+		return pathOfProjectText.getText();
+	}
+	
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components

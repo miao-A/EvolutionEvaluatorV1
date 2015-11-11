@@ -404,11 +404,23 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 		fd_resultTwoText.left = new FormAttachment(0, 10);
 		fd_resultTwoText.bottom = new FormAttachment(jaruncompatibilityTable2, -6);
 		resultTwoText.setLayoutData(fd_resultTwoText);
+		
+	}
+	
+	public void setProjectPath1(String string){
+		pathOfOldProjectText.setText(string);
+	}
 
-		
-		
-		
-		
+	public String getProjectPath1(){
+		return pathOfOldProjectText.getText();
+	}
+
+	public void setProjectPath2(String string){
+		pathOfNewProjectText.setText(string);
+	}
+	
+	public String getProjectPath2(){
+		return pathOfNewProjectText.getText();
 	}
 
 	@Override

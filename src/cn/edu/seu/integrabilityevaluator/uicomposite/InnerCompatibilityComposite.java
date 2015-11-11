@@ -225,6 +225,14 @@ public class InnerCompatibilityComposite extends Composite {
 		fd_ResultText.top = new FormAttachment(0, 91);
 		ResultText.setLayoutData(fd_ResultText);
 	}
+	
+	public void setProjectPath(String string){
+		pathOfProjectText.setText(string);
+	}
+	
+	public String getProjectPath(){
+		return pathOfProjectText.getText();
+	}
 
 	@Override
 	protected void checkSubclass() {
