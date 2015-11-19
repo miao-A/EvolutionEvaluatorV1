@@ -103,6 +103,7 @@ public class AnalysisJarFile {
                     {
                          //通过URLClassLoader.loadClass方法得到具体某个类 
                     	URL[] urls=new URL[]{};
+                    	System.out.println("before load1");
                     	MyClassLoader myClassLoader=new MyClassLoader(urls,null);
                         if (dependfile != null) {
 							List<String> dependjarlist = getDependJarFiles(dependfile);
@@ -120,6 +121,8 @@ public class AnalysisJarFile {
                         Class<?> myClass = null;
                         try {
 							 myClass = myClassLoader.loadClass(ppName);
+							myClass = myClassLoader.loadClass(ppName);
+							System.out.println("after load");
 						} catch (Exception e2) {
 							// TODO: handle exception
 							System.out.println("class not found exception");
@@ -132,7 +135,7 @@ public class AnalysisJarFile {
 	                     System.out.println("sName:"+sName);
 	                     System.out.println("pName:"+pName);
 	                     System.out.println("ppName:"+ppName);
-						
+	                     System.out.println("------------------------------------------------");
 	                     Method m[] = myClass.getMethods();
 	                     if (m.length>0) {
 	                    	JarClassModel jarClassModel = new JarClassModel(pName,ppName);
