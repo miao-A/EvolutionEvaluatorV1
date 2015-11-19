@@ -41,8 +41,8 @@ public class IntergrationMain {
 		projectParser.parser();
 
 		
-		OuterCompatibility outerCompatibility = new OuterCompatibility("", null);
-		outerCompatibility.jarCompatibility(jarPath, jarDependPath);
+		OuterCompatibility outerCompatibility = new OuterCompatibility("D:\\ProjectOfHW\\junit\\junit3.6", null);
+		outerCompatibility.jarCompatibility("D:\\test\\jfreechart-1.0.19.jar", null);
 		//projectParser.runSubstitutabilityOfClassDector();
 		/*String projectPath = "D:\\ProjectOfHW\\jEditor\\jEditor0.2";
 		String pathOfOne = "D:\\ProjectOfHW\\jEditor\\jEditor0.2\\src\\org\\jeditor\\app";*/
