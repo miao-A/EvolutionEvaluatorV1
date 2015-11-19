@@ -194,16 +194,16 @@ public class OuterCompatibilityComposite extends Composite {
 		fd_jarDependPathText.top = new FormAttachment(0, 99);
 		jarDependPathText.setLayoutData(fd_jarDependPathText);
 		
-		Button CompatibilityBtn = new Button(this, SWT.NONE);
-		fd_btnSelect.left = new FormAttachment(CompatibilityBtn, -111, SWT.LEFT);
-		fd_btnSelect.right = new FormAttachment(CompatibilityBtn, -27);
+		Button compatibilityBtn = new Button(this, SWT.NONE);
+		fd_btnSelect.left = new FormAttachment(compatibilityBtn, -111, SWT.LEFT);
+		fd_btnSelect.right = new FormAttachment(compatibilityBtn, -27);
 		FormData fd_CompatibilityBtn = new FormData();
 		fd_CompatibilityBtn.left = new FormAttachment(jaruncompatibilityTable, -79);
 		fd_CompatibilityBtn.bottom = new FormAttachment(jaruncompatibilityTable, -45);
 		fd_CompatibilityBtn.top = new FormAttachment(lbljar, -26, SWT.TOP);
 		fd_CompatibilityBtn.right = new FormAttachment(jaruncompatibilityTable, 0, SWT.RIGHT);
-		CompatibilityBtn.setLayoutData(fd_CompatibilityBtn);
-		CompatibilityBtn.addSelectionListener(new SelectionAdapter() {
+		compatibilityBtn.setLayoutData(fd_CompatibilityBtn);
+		compatibilityBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 //				jdkuncompatibilityTable.removeAll();
@@ -278,13 +278,13 @@ public class OuterCompatibilityComposite extends Composite {
 				}			
 			}
 		});
-		CompatibilityBtn.setText("Analysis");
+		compatibilityBtn.setText("Analysis");
 		
 		Button btnSelect_1 = new Button(this, SWT.NONE);
 		FormData fd_btnSelect_1 = new FormData();
-		fd_btnSelect_1.left = new FormAttachment(CompatibilityBtn, -111, SWT.LEFT);
+		fd_btnSelect_1.left = new FormAttachment(compatibilityBtn, -111, SWT.LEFT);
 		fd_btnSelect_1.top = new FormAttachment(btnSelect, 5);
-		fd_btnSelect_1.right = new FormAttachment(CompatibilityBtn, -27);
+		fd_btnSelect_1.right = new FormAttachment(compatibilityBtn, -27);
 		btnSelect_1.setLayoutData(fd_btnSelect_1);
 		btnSelect_1.addSelectionListener(new SelectionAdapter() {
 			@Override

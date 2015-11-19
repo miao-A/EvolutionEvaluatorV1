@@ -40,7 +40,10 @@ public class IntergrationMain {
 		ProjectParser projectParser = new ProjectParser(projectPath, projectName, version);
 		projectParser.parser();
 
-		projectParser.runSubstitutabilityOfClassDector();
+		
+		OuterCompatibility outerCompatibility = new OuterCompatibility("", null);
+		outerCompatibility.jarCompatibility(jarPath, jarDependPath);
+		//projectParser.runSubstitutabilityOfClassDector();
 		/*String projectPath = "D:\\ProjectOfHW\\jEditor\\jEditor0.2";
 		String pathOfOne = "D:\\ProjectOfHW\\jEditor\\jEditor0.2\\src\\org\\jeditor\\app";*/
 //		String pathOfTwo = "D:\\ProjectOfHW\\jEditor\\jEditor0.2\\src\\org\\jeditor\\diff";
