@@ -119,13 +119,12 @@ public class AnalysisJarFile {
                         String ppName = sName.replace("/", ".").replace(".class", "");
                         Class<?> myClass = null;
                         try {
-<<<<<<< HEAD
                         	System.out.println("before load2");
 							myClass = myClassLoader.loadClass(ppName);
 							System.out.println("after load");
-=======
+
 							 myClass = myClassLoader.loadClass(ppName);
->>>>>>> parent of f504ab6... test pull
+
 						} catch (Exception e2) {
 							// TODO: handle exception
 							System.out.println("class not found exception");
