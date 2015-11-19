@@ -41,9 +41,14 @@ public class IntergrationMain {
 		projectParser.parser();
 
 		
+<<<<<<< HEAD
 		OuterCompatibility outerCompatibility = new OuterCompatibility("D:\\ProjectOfHW\\junit\\junit3.6", null);
 		outerCompatibility.jarCompatibility("D:\\test\\jfreechart-1.0.19.jar", null);
 		System.out.println("test pull");
+=======
+		OuterCompatibility outerCompatibility = new OuterCompatibility("", null);
+		outerCompatibility.jarCompatibility(jarPath, jarDependPath);
+>>>>>>> parent of c5fa993... Test outerCompatibility
 		//projectParser.runSubstitutabilityOfClassDector();
 		/*String projectPath = "D:\\ProjectOfHW\\jEditor\\jEditor0.2";
 		String pathOfOne = "D:\\ProjectOfHW\\jEditor\\jEditor0.2\\src\\org\\jeditor\\app";*/
