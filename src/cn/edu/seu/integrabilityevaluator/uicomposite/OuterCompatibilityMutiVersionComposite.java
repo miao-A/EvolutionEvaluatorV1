@@ -126,8 +126,8 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 				FileDialog fileDialog = new FileDialog(shell, SWT.OPEN);
 				//fileDialog.setText("选择jar文件");
 				fileDialog.setText("Select jar file");
-				fileDialog.setFilterPath("D:\\test");
-				fileDialog.setFileName("jfreechart-1.0.19.jar");
+				fileDialog.setFilterPath("D:\\");
+				fileDialog.setFileName("");
 				fileDialog.open();
 								
 				jarPathText.setText(fileDialog.getFilterPath()+"\\"+fileDialog.getFileName());				
@@ -207,7 +207,7 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 		CompatibilityBtn.setLayoutData(fd_CompatibilityBtn);
 		
 		//String[] tableHeader = {"        包名.类名        ", "       不兼容的jar包类        "};
-		String[] tableHeader = {"        Qualified class name        ", "       Incompatible classes in jar file        "};
+		String[] tableHeader = {"Qualified class name                  ", "Incompatible classes in jar file               "};
 		
 		for (int i = 0; i < tableHeader.length; i++)  
 	    {  					
@@ -290,7 +290,7 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 						/*String[] tableHeader = {"        版本2兼容        ","        "+jarPath+"         "};	
 						TableItem item = new TableItem(jaruncompatibilityTable,SWT.NONE);
 						item.setText(tableHeader);*/
-						resultTwoText.setText("Version2 compatible::"+jarPath);
+						resultTwoText.setText("Version2 compatible:"+jarPath);
 						//System.out.println("兼容"+jarPath);
 					}else {
 						//System.out.println("不兼容"+jarPath);
@@ -308,7 +308,7 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 						TableItem item = new TableItem(jaruncompatibilityTable2,SWT.NONE);
 						item.setText(tableHeader);*/		
 						//TableItem item = new TableItem(jaruncompatibilityTable2,SWT.NONE);
-						resultTwoText.setText("Version2 incompatible::"+jarPath);
+						resultTwoText.setText("Version2 incompatible:"+jarPath);
 						List<JarClassModel> lists = newOuterCompatibility.getUncompatibilityClassModels();
 
 						for (JarClassModel model : lists) {

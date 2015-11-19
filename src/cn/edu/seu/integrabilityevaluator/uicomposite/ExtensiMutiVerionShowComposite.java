@@ -66,6 +66,8 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		lblNull.setLayoutData(fd_lblNull);
 		lblNull.setBounds(28, 10, 61, 17);
 		lblNull.setText("Project:");
+		
+		
 		FormData fd_projectSelectCombo = new FormData();
 		fd_projectSelectCombo.top = new FormAttachment(lblNull, -3, SWT.TOP);
 		fd_projectSelectCombo.left = new FormAttachment(lblNull, 29);
@@ -77,22 +79,20 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		final CTabFolder tabFolder = new CTabFolder(this, SWT.BORDER);
 		tabFolder.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		FormData fd_tabFolder = new FormData();
-		fd_tabFolder.top = new FormAttachment(projectSelectCombo, 20);
-		fd_tabFolder.bottom = new FormAttachment(100, -10);
-		fd_tabFolder.right = new FormAttachment(100, -10);
-		fd_tabFolder.left = new FormAttachment(0, 10);
-		
+		fd_tabFolder.top = new FormAttachment(0, 98);
+		fd_tabFolder.bottom = new FormAttachment(100, -21);
+		fd_tabFolder.left = new FormAttachment(lblNull, 0, SWT.LEFT);
 		tabFolder.setLayoutData(fd_tabFolder);
 		tabFolder.setLocation(10, 48);
-		tabFolder.setSize(888, 545);
+		//tabFolder.setSize(888, 545);
 		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		
 		final CTabItem extenTabItem = new CTabItem(tabFolder, SWT.NONE);
 		//extenTabItem.setText("\u53EF\u6269\u5C55\u6027\u8D8B\u52BF\u56FE");
-		extenTabItem.setText("Tendency of Extensibility Chart");
+		extenTabItem.setText("Tendency chart of extensibility");
 		final CTabItem extenDiffTabItem = new CTabItem(tabFolder, SWT.NONE);
 		//extenDiffTabItem.setText("\u7248\u672C\u53D8\u66F4\u8BE6\u7EC6\u4FE1\u606F");
-		extenDiffTabItem.setText("Version Changes Information");
+		extenDiffTabItem.setText("Version changes information");
 		
 		final StyledText styledText = new StyledText(tabFolder, SWT.BORDER|SWT.H_SCROLL|SWT.V_SCROLL);
 		extenDiffTabItem.setControl(styledText);
@@ -104,6 +104,7 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		version1Combo.setBounds(332, 2, 88, 25);
 		
 		final Combo version2Combo = new Combo(this, SWT.NONE);
+		fd_tabFolder.right = new FormAttachment(version2Combo);
 		FormData fd_version2Combo = new FormData();
 		fd_version2Combo.top = new FormAttachment(projectSelectCombo, 0, SWT.TOP);
 		version2Combo.setLayoutData(fd_version2Combo);
@@ -111,8 +112,8 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		
 		Label label = new Label(this, SWT.NONE);
 		FormData fd_label = new FormData();
+		fd_label.left = new FormAttachment(projectSelectCombo, 20);
 		fd_label.right = new FormAttachment(version1Combo, -6);
-		fd_label.left = new FormAttachment(projectSelectCombo, 54);
 		fd_label.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
 		label.setLayoutData(fd_label);
 		label.setBounds(243, 10, 61, 17);
@@ -120,11 +121,11 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		label.setText("Version1:");
 		
 		Label label_1 = new Label(this, SWT.NONE);
-		fd_version2Combo.left = new FormAttachment(label_1, 26);
+		fd_version2Combo.left = new FormAttachment(label_1, 20);
 		FormData fd_label_1 = new FormData();
 		fd_label_1.right = new FormAttachment(version1Combo, 104, SWT.RIGHT);
 		fd_label_1.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
-		fd_label_1.left = new FormAttachment(version1Combo, 26);
+		fd_label_1.left = new FormAttachment(version1Combo, 20);
 		label_1.setLayoutData(fd_label_1);
 		//label_1.setText("\u7248\u672C2\uFF1A");
 		label_1.setText("Version2:");
@@ -135,21 +136,22 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		
 		final Button projRadioButton = new Button(this, SWT.RADIO);
 		FormData fd_projRadioButton = new FormData();
-		fd_projRadioButton.left = new FormAttachment(version2Combo, 34);
-		fd_projRadioButton.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
+		fd_projRadioButton.right = new FormAttachment(projectSelectCombo, 0, SWT.RIGHT);
+		fd_projRadioButton.top = new FormAttachment(lblNull, 17);
+		fd_projRadioButton.left = new FormAttachment(lblNull, 0, SWT.LEFT);
 		projRadioButton.setLayoutData(fd_projRadioButton);
-		projRadioButton.setText("System level");
+		projRadioButton.setText("System Level");
 		projRadioButton.setSelection(false);
 		projRadioButton.setBounds(653, 10, 98, 17);
 		//projRadioButton.setText("\u7CFB\u7EDF\u5C42");
 		
 		final Button pkgRadioButton = new Button(this, SWT.RADIO);
-		fd_projRadioButton.right = new FormAttachment(pkgRadioButton, -12);
+		fd_tabFolder.right = new FormAttachment(pkgRadioButton, 0, SWT.RIGHT);
 		fd_tabFolder.right = new FormAttachment(pkgRadioButton, -17, SWT.RIGHT);
 		FormData fd_pkgRadioButton = new FormData();
-		fd_pkgRadioButton.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
+		fd_pkgRadioButton.left = new FormAttachment(label, 0, SWT.LEFT);
 		fd_pkgRadioButton.right = new FormAttachment(100, -10);
-		fd_pkgRadioButton.left = new FormAttachment(0, 782);
+		fd_pkgRadioButton.top = new FormAttachment(projRadioButton, 0, SWT.TOP);
 		pkgRadioButton.setLayoutData(fd_pkgRadioButton);
 		
 		pkgRadioButton.addSelectionListener(new SelectionAdapter() {
@@ -176,6 +178,7 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 					chartComposite = new ChartComposite(tabFolder, SWT.NONE, chart, true);
 					extenTabItem.setControl(chartComposite);
 					chartComposite.setVisible(true);
+					
 					//chartComposite.redraw();
 					
 				}
@@ -183,7 +186,7 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 			}
 		});
 		pkgRadioButton.setBounds(779, 10, 98, 17);
-		pkgRadioButton.setText("Package level");
+		pkgRadioButton.setText("Package Level");
 		
 		projRadioButton.addSelectionListener(new SelectionAdapter() {
 			@Override

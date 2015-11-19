@@ -1,5 +1,7 @@
 package cn.edu.seu.integrabilityevaluator.ui;
 
+
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
@@ -7,9 +9,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StackLayout;
-import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.MenuItem;
-
 import cn.edu.seu.integrabilityevaluator.uicomposite.CompatibilityComposite;
 import cn.edu.seu.integrabilityevaluator.uicomposite.CompatibilityMutiVersionComposite;
 import cn.edu.seu.integrabilityevaluator.uicomposite.ExtensiMutiVerionShowComposite;
@@ -17,12 +18,11 @@ import cn.edu.seu.integrabilityevaluator.uicomposite.ExtensibilityComposite;
 import cn.edu.seu.integrabilityevaluator.uicomposite.ProjectInfoComposite;
 import cn.edu.seu.integrabilityevaluator.uicomposite.SubstitutabilityComposite;
 import cn.edu.seu.integrabilityevaluator.uicomposite.SubstitutabilityMutiVersionShowComposite;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.GridLayout;
+
 
 public class IntegrationApp {
 	
@@ -40,8 +40,10 @@ public class IntegrationApp {
 	
 	public static void main(String[] args){
 		try {
+			
 			IntegrationApp window = new IntegrationApp();
 			window.open();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -62,12 +64,12 @@ public class IntegrationApp {
 	 */
 	public void open() {
 		Display display = Display.getDefault();
-		shell = new Shell(SWT.SHELL_TRIM | SWT.ON_TOP);
+		shell = new Shell(SWT.SHELL_TRIM |SWT.PRIMARY_MODAL);
 		shell.setSize(931, 658);
 		shell.setText("Integration Evaluator");
 		shell.setLayout(new FormLayout());
-		//shell.setLayout(new StackLayout());		
-	
+		//shell.setLayout(new StackLayout());
+		
 		
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
@@ -121,7 +123,7 @@ public class IntegrationApp {
 		composite.setLayoutData(fd_composite);
 		composite.setLayout(compositeSL);		
 		
-		projectInfoComposite = new ProjectInfoComposite(composite, SWT.NONE);
+		projectInfoComposite = new ProjectInfoComposite(composite, SWT.NONE);		
 		//compatibilityComposite = new CompatibilityComposite(composite, SWT.NONE);
 		//extensibilityComposite = new ExtensibilityComposite(composite, SWT.NONE);
 		//changeabilityComposite = new SubstitutabilityComposite(composite, SWT.NONE);		
@@ -196,4 +198,33 @@ public class IntegrationApp {
 	public void setShellTitle(String string){
 		shell.setText("Integration Evaluator"+string);
 	}
+	
+	
+	/**
+     * <b 设置指定控件以及其子控件字体的大小。<br>
+  
+     * <li>设定字体
+     * <li>设定子控件的字体
+     * </ul>
+     * 
+     * @param control 需要设定字体的控件
+     * <p>
+     *//*
+    public void applyDialogFont(Control control) {
+        // 如果控件的字体为系统的默认字体就设定控件的字体，当某些控件设定过字体后就跳过
+        if (control.getFont().equals(Display.getCurrent().getSystemFont())) {
+            control.setFont(new Font(Display.getCurrent(), "微软雅黑", 9,  SWT.NORMAL));
+            // Linux环境下，当设置过字体后会导致之前设定的背景色无效，需要重新设置
+            control.setBackground(control.getBackground());
+        }
+        // 设定子控件的字体
+        if (control instanceof Composite) {
+            Control[] children = ((Composite) control).getChildren();
+            for (Control child : children) {
+                applyDialogFont(child);
+            }
+        }
+    }*/
+
+   
 }

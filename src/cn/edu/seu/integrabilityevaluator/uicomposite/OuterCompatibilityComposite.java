@@ -270,7 +270,7 @@ public class OuterCompatibilityComposite extends Composite {
 
 						for (JarClassModel model : lists) {
 							item = new TableItem(jaruncompatibilityTable,SWT.NONE);
-							String[] strings= {"Incompatible classes       ",model.getFromClass(),};
+							String[] strings= {"Incompatible classes",model.getFromClass(),};
 							item.setText(strings);
 						}
 						
@@ -294,7 +294,7 @@ public class OuterCompatibilityComposite extends Composite {
 				DirectoryDialog folderDialog = new DirectoryDialog(shell);
 				
 				folderDialog.setText("Please select project file");	
-				folderDialog.setFilterPath("D:\\test\\TestJar");
+				folderDialog.setFilterPath("D:\\");
 				folderDialog.open();				
 				jarDependPathText.setText(folderDialog.getFilterPath());				
 			}

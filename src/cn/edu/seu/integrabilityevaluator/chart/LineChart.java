@@ -72,20 +72,20 @@ public abstract class LineChart{
         
         
         TextTitle textTitle = chart.getTitle();
-        textTitle.setFont(new Font("黑体", Font.PLAIN, 20));      
-        domainAxis.setTickLabelFont(new Font("Calibri", Font.PLAIN, 11));
-        domainAxis.setLabelFont(new Font("宋体", Font.PLAIN, 16));  
+        textTitle.setFont(new Font("Tahoma", Font.PLAIN, 12));      
+        domainAxis.setTickLabelFont(new Font("Tahoma", Font.PLAIN, 11));
+        domainAxis.setLabelFont(new Font("Tahoma", Font.PLAIN, 12));  
        
 		domainAxis.setCategoryLabelPositions(CategoryLabelPositions
 				.createUpRotationLabelPositions(Math.PI / 8));
 
         
         
-        numberaxis.setTickLabelFont(new Font("sans-serif", Font.PLAIN, 12));  
-        numberaxis.setLabelFont(new Font("黑体", Font.PLAIN, 12));  
+        numberaxis.setTickLabelFont(new Font("Tahoma", Font.PLAIN, 12));  
+        numberaxis.setLabelFont(new Font("Tahoma", Font.PLAIN, 12));  
         numberaxis.setVerticalTickLabels(false);
        
-        chart.getLegend().setItemFont(new Font("宋体", Font.PLAIN, 12));
+        chart.getLegend().setItemFont(new Font("Tahoma", Font.PLAIN, 12));
         
         /*// 创建文件输出流
         File fos_jpg = new File("E://"+string+".jpg ");
@@ -105,7 +105,7 @@ public abstract class LineChart{
 	public abstract void creatDataSet();
 
     /** 
-    * 获取一个演示用的简单数据集对象
+    * 获取数据集对象
     * @return 
     */ 
 

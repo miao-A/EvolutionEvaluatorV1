@@ -45,6 +45,7 @@ public class WelcomeDialog extends Dialog {
 	protected Object result;
 	protected Shell shell;
 	private Image welcomeImage = null;
+	private IntegrationApp integrationApp= null;
 
 	/**
 	 * Create the dialog.
@@ -142,10 +143,12 @@ public class WelcomeDialog extends Dialog {
 				}else if (event.widget == integrationEvalButton) {
 					try {
 						//shell.setVisible(false);
-						IntegrationApp window = new IntegrationApp();
-						//IntergrationDialog window  = new IntergrationDialog(shell, SWT.NONE);
-						window.open();
-						shell.setVisible(true);						
+						integrationApp = new IntegrationApp();
+						integrationApp.open();							
+									
+						
+						
+											
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

@@ -108,13 +108,14 @@ public class VersionCompatibilityComposite extends Composite {
 		pathOfOldProjectText = new Text(this, SWT.BORDER);
 		fd_label.right = new FormAttachment(pathOfOldProjectText, -6);
 		FormData fd_oldComponentText = new FormData();
-		fd_oldComponentText.top = new FormAttachment(0, 21);
 		fd_oldComponentText.left = new FormAttachment(0, 128);
+		fd_oldComponentText.top = new FormAttachment(0, 21);
 		pathOfOldProjectText.setLayoutData(fd_oldComponentText);
 		
 		Button btnNewButton = new Button(this, SWT.NONE);
 		fd_oldComponentText.right = new FormAttachment(btnNewButton, -6);
 		FormData fd_btnNewButton = new FormData();
+		fd_btnNewButton.bottom = new FormAttachment(0, 43);
 		fd_btnNewButton.top = new FormAttachment(0, 21);
 		btnNewButton.setLayoutData(fd_btnNewButton);
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
@@ -123,12 +124,10 @@ public class VersionCompatibilityComposite extends Composite {
 				
 				Display display = Display.getDefault();
 				Shell shell = new Shell(display);
-				DirectoryDialog folderDialog = new DirectoryDialog(shell);
-				
+				DirectoryDialog folderDialog = new DirectoryDialog(shell);				
 				folderDialog.setText("Please select project file");	
-				folderDialog.setFilterPath("D:/ProjectOfHW/junit/junit3.4");//"D:/ProjectOfHW/junit/junit3.4/src/junit/runner"
-				folderDialog.open();
-				
+				folderDialog.setFilterPath("D:\\");//"D:/ProjectOfHW/junit/junit3.4/src/junit/runner"
+				folderDialog.open();				
 				pathOfOldProjectText.setText(folderDialog.getFilterPath());
 				
 			}
@@ -140,15 +139,15 @@ public class VersionCompatibilityComposite extends Composite {
 		pathOfNewProjectText = new Text(this, SWT.BORDER);
 		fd_oldComponentText.bottom = new FormAttachment(pathOfNewProjectText, -16);
 		FormData fd_newComponentText = new FormData();
+		fd_newComponentText.left = new FormAttachment(label_1, 6);
+		fd_newComponentText.bottom = new FormAttachment(0, 81);
 		fd_newComponentText.top = new FormAttachment(0, 59);
-		fd_newComponentText.left = new FormAttachment(0,128);
 		pathOfNewProjectText.setLayoutData(fd_newComponentText);
 		
 		Button btnSelect = new Button(this, SWT.NONE);
-		fd_btnNewButton.bottom = new FormAttachment(btnSelect, -16);
 		fd_newComponentText.right = new FormAttachment(btnSelect, -6);
 		FormData fd_btnSelect = new FormData();
-		fd_btnSelect.top = new FormAttachment(0, 59);
+		fd_btnSelect.top = new FormAttachment(btnNewButton, 13);
 		btnSelect.setLayoutData(fd_btnSelect);
 		btnSelect.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -159,7 +158,7 @@ public class VersionCompatibilityComposite extends Composite {
 				DirectoryDialog folderDialog = new DirectoryDialog(shell);
 				
 				folderDialog.setText("Please select project file");	
-				folderDialog.setFilterPath("D:/ProjectOfHW/junit/junit3.5");
+				folderDialog.setFilterPath("D:\\");
 				folderDialog.open();
 				
 				pathOfNewProjectText.setText(folderDialog.getFilterPath());
@@ -169,10 +168,10 @@ public class VersionCompatibilityComposite extends Composite {
 		btnSelect.setText("Select...");
 		
 		changeTypeTable = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
+		fd_btnSelect.bottom = new FormAttachment(changeTypeTable, -54);
 		FormData fd_changeTypeTable = new FormData();
 		fd_changeTypeTable.bottom = new FormAttachment(100, -10);
 		fd_changeTypeTable.right = new FormAttachment(100, -10);
-		fd_changeTypeTable.top = new FormAttachment(0, 120);
 		fd_changeTypeTable.left = new FormAttachment(0, 10);
 		changeTypeTable.setLayoutData(fd_changeTypeTable);
 		changeTypeTable.setHeaderVisible(true);
@@ -183,7 +182,7 @@ public class VersionCompatibilityComposite extends Composite {
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
 		
-		String[] tableHeader = {"   Qualified class name   ","    New methods    ", "    Incompathiblity methods    ","      Compatible methods       ","      Unchanged methods       "};		
+		String[] tableHeader = {"Qualified class name      ","New methods        ", "Incompathiblity methods        ","Compatible methods             ","Unchanged methods             "};		
 		for (int i = 0; i < tableHeader.length; i++)  
 	    {  					
 			TableColumn tableColumn = new TableColumn(changeTypeTable, SWT.NONE);
@@ -194,15 +193,15 @@ public class VersionCompatibilityComposite extends Composite {
 	    }
 		
 		Button CompatibilityBtn = new Button(this, SWT.NONE);
-		fd_btnSelect.left = new FormAttachment(CompatibilityBtn, -74, SWT.LEFT);
-		fd_btnSelect.right = new FormAttachment(CompatibilityBtn, -6);
-		fd_btnNewButton.left = new FormAttachment(CompatibilityBtn, -74, SWT.LEFT);
-		fd_btnNewButton.right = new FormAttachment(CompatibilityBtn, -6);
+		fd_btnSelect.left = new FormAttachment(CompatibilityBtn, -85, SWT.LEFT);
+		fd_btnNewButton.left = new FormAttachment(CompatibilityBtn, -85, SWT.LEFT);
+		fd_btnSelect.right = new FormAttachment(CompatibilityBtn, -17);
+		fd_btnNewButton.right = new FormAttachment(CompatibilityBtn, -17);
 		FormData fd_CompatibilityBtn = new FormData();
-		fd_CompatibilityBtn.left = new FormAttachment(changeTypeTable, -79);
-		fd_CompatibilityBtn.bottom = new FormAttachment(changeTypeTable, -30);
+		fd_CompatibilityBtn.bottom = new FormAttachment(label_1, 0, SWT.BOTTOM);
+		fd_CompatibilityBtn.left = new FormAttachment(100, -78);
 		fd_CompatibilityBtn.top = new FormAttachment(0, 21);
-		fd_CompatibilityBtn.right = new FormAttachment(changeTypeTable, 0, SWT.RIGHT);
+		fd_CompatibilityBtn.right = new FormAttachment(100, -10);
 		CompatibilityBtn.setLayoutData(fd_CompatibilityBtn);
 		CompatibilityBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -597,11 +596,12 @@ public class VersionCompatibilityComposite extends Composite {
 		CompatibilityBtn.setText("Analysis");
 		
 		ResultText = new Text(this, SWT.BORDER | SWT.READ_ONLY);
-		fd_newComponentText.bottom = new FormAttachment(ResultText, -10);
+		fd_changeTypeTable.top = new FormAttachment(ResultText, 6);
 		FormData fd_ResultText = new FormData();
-		fd_ResultText.right = new FormAttachment(0, 467);
-		fd_ResultText.top = new FormAttachment(0, 91);
+		fd_ResultText.bottom = new FormAttachment(pathOfNewProjectText, 46, SWT.BOTTOM);
+		fd_ResultText.top = new FormAttachment(pathOfNewProjectText, 23);
 		fd_ResultText.left = new FormAttachment(0, 10);
+		fd_ResultText.right = new FormAttachment(0, 467);
 		ResultText.setLayoutData(fd_ResultText);
 	}
 	

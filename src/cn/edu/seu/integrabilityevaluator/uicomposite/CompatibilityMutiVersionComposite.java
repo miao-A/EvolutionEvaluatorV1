@@ -33,7 +33,7 @@ public class CompatibilityMutiVersionComposite extends Composite {
 		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 		
 		CTabItem tbtmEvaluationOfInner = new CTabItem(tabFolder, SWT.NONE);
-		tbtmEvaluationOfInner.setText("Evaluation of inner Compatibility \r\nunder Evoluation  ");
+		tbtmEvaluationOfInner.setText(" Inner compatibility under evoluation  ");
 		
 		
 		
@@ -41,13 +41,13 @@ public class CompatibilityMutiVersionComposite extends Composite {
 		tbtmEvaluationOfInner.setControl(composite);
 		
 		CTabItem tbtmEvaluationOfOuter = new CTabItem(tabFolder, SWT.NONE);
-		tbtmEvaluationOfOuter.setText("Evaluation of outer Compatibility under Evoluation  ");
+		tbtmEvaluationOfOuter.setText("Outer compatibility under evoluation  ");
 		
 		final Composite composite_2 = new OuterCompatibilityMutiVersionComposite(tabFolder, SWT.NONE);
 		tbtmEvaluationOfOuter.setControl(composite_2);
 		
 		CTabItem tbtmEvaluationOfVersion = new CTabItem(tabFolder, SWT.NONE);
-		tbtmEvaluationOfVersion.setText("Evaluation of version Compatibility under Evoluation");
+		tbtmEvaluationOfVersion.setText("Version compatibility under evoluation");
 		
 		final Composite composite_1 = new VersionCompatibilityComposite(tabFolder, SWT.NONE);
 		tbtmEvaluationOfVersion.setControl(composite_1);

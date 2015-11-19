@@ -36,7 +36,7 @@ public class CompatibilityComposite extends Composite {
 		
 		CTabItem tbtmInnerCompatibility = new CTabItem(tabFolder, SWT.NONE);
 		//tabItem.setText("\u5185\u90E8\u517C\u5BB9\u6027");
-		tbtmInnerCompatibility.setText("Inner compatibility  ");
+		tbtmInnerCompatibility.setText(" Inner compatibility  ");
 		
 		final Composite composite = new InnerCompatibilityComposite(tabFolder, SWT.NONE);
 		tbtmInnerCompatibility.setControl(composite);

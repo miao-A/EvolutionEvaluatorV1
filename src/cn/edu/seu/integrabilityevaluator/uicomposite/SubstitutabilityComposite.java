@@ -80,11 +80,11 @@ public class SubstitutabilityComposite extends Composite {
 		lblProject.setText("Project:");
 		
 		Label lblVersion = new Label(this, SWT.NONE);
-		fd_versionCombo.left = new FormAttachment(0, 328);
+		fd_versionCombo.left = new FormAttachment(lblVersion, 22);
 		FormData fd_lblVersion = new FormData();
-		fd_lblVersion.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
+		fd_lblVersion.right = new FormAttachment(projectSelectCombo, 125, SWT.RIGHT);
 		fd_lblVersion.left = new FormAttachment(projectSelectCombo, 44);
-		fd_lblVersion.right = new FormAttachment(versionCombo, -32);
+		fd_lblVersion.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
 		lblVersion.setLayoutData(fd_lblVersion);
 		lblVersion.setBounds(243, 13, 61, 17);
 		lblVersion.setText("Version:");
@@ -99,14 +99,14 @@ public class SubstitutabilityComposite extends Composite {
 		tabFolder.setBounds(10, 51, 880, 552);
 		
 		TabItem tbtmTablePackageCoupling = new TabItem(tabFolder, SWT.NONE);
-		tbtmTablePackageCoupling.setText("Package coupling relationships Table");
+		tbtmTablePackageCoupling.setText("Package coupling relationships table");
 		
 		final Tree packageCouplingTree = new Tree(tabFolder, SWT.BORDER);
 		tbtmTablePackageCoupling.setControl(packageCouplingTree);
 		packageCouplingTree.setLinesVisible(true);
 		
 		TabItem tbtmClassCouplingRelationships = new TabItem(tabFolder, SWT.NONE);
-		tbtmClassCouplingRelationships.setText("Class coupling relationships Table");
+		tbtmClassCouplingRelationships.setText("Class coupling relationships table");
 		
 		final Tree classCouplingTree = new Tree(tabFolder, SWT.BORDER);
 		classCouplingTree.setLinesVisible(true);

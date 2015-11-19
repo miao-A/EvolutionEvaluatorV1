@@ -35,7 +35,11 @@ public class OuterCompatibilityVisitor extends ASTVisitor{
 	}
 
 	public boolean visit(CompilationUnit node){
-		packageName = node.getPackage().getName().getFullyQualifiedName();
+
+		if (node.getPackage()!= null) {
+			packageName = node.getPackage().getName().getFullyQualifiedName();
+		}
+		
 		
 		/*IProblem[] iProblems = node.getProblems();
 		for (IProblem iProblem : iProblems) {

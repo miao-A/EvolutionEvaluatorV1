@@ -95,7 +95,7 @@ public class InnerCompatibilityComposite extends Composite {
 				DirectoryDialog folderDialog = new DirectoryDialog(shell);
 				
 				folderDialog.setText("Please select project");	
-				folderDialog.setFilterPath("D:/ProjectOfHW/jEditor/jEditor0.2");//"D:/ProjectOfHW/junit/junit3.4"
+				folderDialog.setFilterPath("D:\\");//"D:/ProjectOfHW/junit/junit3.4"
 				folderDialog.open();
 				
 				pathOfProjectText.setText(folderDialog.getFilterPath());
@@ -153,7 +153,7 @@ public class InnerCompatibilityComposite extends Composite {
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
 		
-		String[] tableHeader = {"      Qualified class name       ", "     Incompatible class      ","      Incompatible method      ","    required signature    ","      Actual signature      "};	
+		String[] tableHeader = {"Qualified class name             ", "Incompatible class           ","Incompatible method            ","Required signature        ","Actual signature            "};	
 		for (int i = 0; i < tableHeader.length; i++)  
 	    {  					
 			TableColumn tableColumn = new TableColumn(uncompatibilityTable, SWT.NONE);

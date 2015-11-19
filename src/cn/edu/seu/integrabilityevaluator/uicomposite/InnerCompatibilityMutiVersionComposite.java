@@ -88,7 +88,7 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 				DirectoryDialog folderDialog = new DirectoryDialog(shell);
 				
 				folderDialog.setText("Please select project file");	
-				folderDialog.setFilterPath("D:/ProjectOfHW/junit/junit3.4");//"D:/ProjectOfHW/junit/junit3.4"
+				folderDialog.setFilterPath("D:\\");//"D:/ProjectOfHW/junit/junit3.4"
 				folderDialog.open();
 				
 				pathOfOldProjectText.setText(folderDialog.getFilterPath());
@@ -123,7 +123,7 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
 		
-		String[] tableHeader = {"    Qualified class name    ", "    Incompatible classes    ","    Incompatible methods    ","    required signature    ","    Actual signature    "};	
+		String[] tableHeader = {"Qualified class name        ", "Incompatible classes        ","Incompatible methods        ","Required signature        ","Actual signature        "};	
 		for (int i = 0; i < tableHeader.length; i++)  
 	    {  					
 			TableColumn tableColumn = new TableColumn(uncompatibilityTableOne, SWT.NONE);

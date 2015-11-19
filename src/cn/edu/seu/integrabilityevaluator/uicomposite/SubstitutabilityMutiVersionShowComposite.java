@@ -92,7 +92,7 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		tabFolder.setSelectionBackground(Display.getCurrent().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT));
 				
 		final CTabItem changeTabItem = new CTabItem(tabFolder, SWT.NONE);
-		changeTabItem.setText("Tendency of Substitutability chart");
+		changeTabItem.setText("Tendency chart of substitutability");
 		
 		/*final CTabItem changeDifftabItem = new CTabItem(tabFolder, SWT.NONE);
 		changeDifftabItem.setText("\u7248\u672C\u53D8\u66F4");*/
