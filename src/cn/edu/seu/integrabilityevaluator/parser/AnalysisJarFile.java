@@ -120,7 +120,7 @@ public class AnalysisJarFile {
                         String ppName = sName.replace("/", ".").replace(".class", "");
                         Class<?> myClass = null;
                         try {
-							 myClass = myClassLoader.loadClass(ppName);
+                        	System.out.println("before load2");
 							myClass = myClassLoader.loadClass(ppName);
 							System.out.println("after load");
 						} catch (Exception e2) {
