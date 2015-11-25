@@ -73,21 +73,21 @@ public class SubstitutabilityComposite extends Composite {
 		fd_projectSelectCombo.left = new FormAttachment(lblProject, 27);
 		FormData fd_lblProject = new FormData();
 		fd_lblProject.left = new FormAttachment(0, 10);
-		fd_lblProject.right = new FormAttachment(0, 76);
+		fd_lblProject.right = new FormAttachment(0, 142);
 		fd_lblProject.top = new FormAttachment(0, 23);
 		lblProject.setLayoutData(fd_lblProject);
 		lblProject.setBounds(10, 18, 61, 17);
-		lblProject.setText("Project:");
+		lblProject.setText("Select project:");
 		
 		Label lblVersion = new Label(this, SWT.NONE);
 		fd_versionCombo.left = new FormAttachment(lblVersion, 22);
 		FormData fd_lblVersion = new FormData();
-		fd_lblVersion.right = new FormAttachment(projectSelectCombo, 125, SWT.RIGHT);
+		fd_lblVersion.right = new FormAttachment(projectSelectCombo, 195, SWT.RIGHT);
 		fd_lblVersion.left = new FormAttachment(projectSelectCombo, 44);
 		fd_lblVersion.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
 		lblVersion.setLayoutData(fd_lblVersion);
 		lblVersion.setBounds(243, 13, 61, 17);
-		lblVersion.setText("Version:");
+		lblVersion.setText("Project version:");
 		
 		TabFolder tabFolder = new TabFolder(this, SWT.NONE);
 		FormData fd_tabFolder = new FormData();

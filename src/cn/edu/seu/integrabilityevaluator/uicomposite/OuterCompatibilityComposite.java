@@ -54,7 +54,7 @@ public class OuterCompatibilityComposite extends Composite {
 		fd_lblProjectPath.left = new FormAttachment(0, 10);
 		fd_lblProjectPath.top = new FormAttachment(0, 27);
 		lblProjectPath.setLayoutData(fd_lblProjectPath);
-		lblProjectPath.setText("Project path:");
+		lblProjectPath.setText("Select project:");
 		
 		Label lbljar = new Label(this, SWT.NONE);
 		FormData fd_lbljar = new FormData();

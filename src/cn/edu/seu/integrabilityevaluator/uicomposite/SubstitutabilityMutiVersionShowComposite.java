@@ -63,24 +63,24 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		super(parent, style);
 		setLayout(new FormLayout());
 		
-		Label lblNull = new Label(this, SWT.NONE);
-		FormData fd_lblNull = new FormData();
-		fd_lblNull.top = new FormAttachment(0, 24);
-		lblNull.setLayoutData(fd_lblNull);
-		lblNull.setBounds(13, 15, 61, 17);
-		lblNull.setText("Project:");
+		Label lblProject = new Label(this, SWT.NONE);
+		FormData fd_lblProject = new FormData();
+		fd_lblProject.right = new FormAttachment(projectSelectCombo, -6);
+		fd_lblProject.top = new FormAttachment(0, 24);
+		lblProject.setLayoutData(fd_lblProject);
+		lblProject.setBounds(13, 15, 61, 17);
+		lblProject.setText("Select project:");
 		FormData fd_projectSelectCombo = new FormData();
+		fd_projectSelectCombo.left = new FormAttachment(0, 150);
 		fd_projectSelectCombo.top = new FormAttachment(0, 21);
-		fd_projectSelectCombo.left = new FormAttachment(lblNull, 19);
 		projectSelectCombo.setLayoutData(fd_projectSelectCombo);
 	
 		projectSelectCombo.setBounds(90, 12, 98, 25);
 		
 		
 		final CTabFolder tabFolder = new CTabFolder(this, SWT.BORDER);
+		fd_lblProject.left = new FormAttachment(tabFolder, 0, SWT.LEFT);
 		tabFolder.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		fd_lblNull.right = new FormAttachment(tabFolder, 71);
-		fd_lblNull.left = new FormAttachment(tabFolder, 0, SWT.LEFT);
 		FormData fd_tabFolder = new FormData();
 		fd_tabFolder.top = new FormAttachment(projectSelectCombo, 21);
 		fd_tabFolder.bottom = new FormAttachment(100, -10);
@@ -93,7 +93,7 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 				
 		final CTabItem changeTabItem = new CTabItem(tabFolder, SWT.NONE);
 		changeTabItem.setText("Tendency chart of substitutability");
-		
+		tabFolder.setSelection(changeTabItem);
 		/*final CTabItem changeDifftabItem = new CTabItem(tabFolder, SWT.NONE);
 		changeDifftabItem.setText("\u7248\u672C\u53D8\u66F4");*/
 		
@@ -115,26 +115,28 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		version2Combo.setLayoutData(fd_version2Combo);
 		version2Combo.setBounds(467, 12, 88, 25);
 		
-		Label label = new Label(this, SWT.NONE);
+		final Label label = new Label(this, SWT.NONE);
+		fd_version1Combo.left = new FormAttachment(label, 22);
 		FormData fd_label = new FormData();
-		fd_label.left = new FormAttachment(projectSelectCombo, 21);
-		fd_label.right = new FormAttachment(version1Combo, -16);
+		fd_label.right = new FormAttachment(projectSelectCombo, 149, SWT.RIGHT);
+		fd_label.left = new FormAttachment(projectSelectCombo, 6);
 		fd_label.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
 		label.setLayoutData(fd_label);
 		label.setBounds(217, 15, 61, 17);
-		label.setText("Version1:");
+		label.setText("Source version:");
 		
-		Label label_1 = new Label(this, SWT.NONE);
-		fd_version2Combo.left = new FormAttachment(0, 529);
-		fd_version1Combo.right = new FormAttachment(label_1, -29);
+		final Label label_1 = new Label(this, SWT.NONE);
+		fd_version2Combo.left = new FormAttachment(label_1, 26);
 		FormData fd_label_1 = new FormData();
-		fd_label_1.right = new FormAttachment(version2Combo, -6);
-		fd_label_1.left = new FormAttachment(0, 446);
+		fd_label_1.right = new FormAttachment(version1Combo, 174, SWT.RIGHT);
 		fd_label_1.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
+		fd_label_1.left = new FormAttachment(version1Combo, 50);
 		label_1.setLayoutData(fd_label_1);
-		label_1.setText("Version2:");
+		label_1.setText("Target version:");
 		label_1.setBounds(400, 15, 61, 17);
 			
+		
+		
 		projectSelectCombo.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -220,6 +222,29 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 				//setCompose(tabFolder,classChangeDiffTabItem,projName,version1,version2);
 				styledText.setText(getDiffText(projName,version1,version2));
 				textAddColor(styledText);
+			}
+		});
+		
+		
+		//版本菜单的可见性设置
+		/*label.setVisible(false);
+		label_1.setVisible(false);
+		version1Combo.setVisible(false);
+		version2Combo.setVisible(false);*/
+		tabFolder.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				if (event.item == changeTabItem) {
+					label.setVisible(false);
+					label_1.setVisible(false);
+					version1Combo.setVisible(false);
+					version2Combo.setVisible(false);
+				}else if(event.item == classChangeDiffTabItem){
+					label.setVisible(true);
+					label_1.setVisible(true);
+					version1Combo.setVisible(true);
+					version2Combo.setVisible(true);
+				}
 			}
 		});
 		

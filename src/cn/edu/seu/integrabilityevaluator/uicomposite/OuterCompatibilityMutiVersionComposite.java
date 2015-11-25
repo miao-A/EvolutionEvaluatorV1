@@ -58,7 +58,7 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 		fd_lblProjectPath.left = new FormAttachment(0, 10);
 		fd_lblProjectPath.top = new FormAttachment(0, 16);
 		lblProjectPath.setLayoutData(fd_lblProjectPath);
-		lblProjectPath.setText("Project version1:");
+		lblProjectPath.setText("Project source version:");
 		
 		Label lbljar = new Label(this, SWT.NONE);
 		FormData fd_lbljar = new FormData();
@@ -254,7 +254,7 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 						/*String[] tableHeader = {"       版本1兼容        ","        "+jarPath+"         "};	
 						TableItem item = new TableItem(jaruncompatibilityTable,SWT.NONE);
 						item.setText(tableHeader);*/
-						resultOneText.setText("Version1 compatible:"+jarPath);
+						resultOneText.setText("Source version compatible:"+jarPath);
 						//System.out.println("兼容"+jarPath);
 					}else {
 						//System.out.println("不兼容"+jarPath);
@@ -274,7 +274,7 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 						/*String[] tableHeader1 = {"        版本1不兼容        ","        "+jarPath+"         "};	
 						TableItem item = new TableItem(jaruncompatibilityTable1,SWT.NONE);
 						item.setText(tableHeader1);*/					
-						resultOneText.setText("Version1 incompatible:"+jarPath);						
+						resultOneText.setText("Source version incompatible:"+jarPath);						
 						List<JarClassModel> lists = oldOuterCompatibility.getUncompatibilityClassModels();
 
 						for (JarClassModel model : lists) {
@@ -290,7 +290,7 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 						/*String[] tableHeader = {"        版本2兼容        ","        "+jarPath+"         "};	
 						TableItem item = new TableItem(jaruncompatibilityTable,SWT.NONE);
 						item.setText(tableHeader);*/
-						resultTwoText.setText("Version2 compatible:"+jarPath);
+						resultTwoText.setText("Target version compatible:"+jarPath);
 						//System.out.println("兼容"+jarPath);
 					}else {
 						//System.out.println("不兼容"+jarPath);
@@ -308,7 +308,7 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 						TableItem item = new TableItem(jaruncompatibilityTable2,SWT.NONE);
 						item.setText(tableHeader);*/		
 						//TableItem item = new TableItem(jaruncompatibilityTable2,SWT.NONE);
-						resultTwoText.setText("Version2 incompatible:"+jarPath);
+						resultTwoText.setText("Target version incompatible:"+jarPath);
 						List<JarClassModel> lists = newOuterCompatibility.getUncompatibilityClassModels();
 
 						for (JarClassModel model : lists) {
@@ -354,7 +354,7 @@ public class OuterCompatibilityMutiVersionComposite extends Composite {
 		fd_lblProjcetPath.top = new FormAttachment(0, 41);
 		fd_lblProjcetPath.left = new FormAttachment(0, 10);
 		lblProjcetPath.setLayoutData(fd_lblProjcetPath);
-		lblProjcetPath.setText("Projcet version2:");
+		lblProjcetPath.setText("Project target version:");
 		
 		pathOfNewProjectText = new Text(this, SWT.BORDER);
 		FormData fd_pathOfNewProjectText = new FormData();

@@ -36,33 +36,8 @@ public class OuterCompatibility {
 		ASTParser parser;
 		parser = ASTParser.newParser(AST.JLS4);
 		
-		String javaCoreVersion = null;
-		switch (Version) {
-		case "1.1":
-			javaCoreVersion = JavaCore.VERSION_1_4;
-			break;
-		case "1.2":
-			javaCoreVersion = JavaCore.VERSION_1_4;
-			break;
-		case "1.3":
-			javaCoreVersion = JavaCore.VERSION_1_4;
-			break;
-		case "1.4":
-			javaCoreVersion = JavaCore.VERSION_1_4;
-			break;
-		case "1.5":
-			javaCoreVersion = JavaCore.VERSION_1_5;
-			break;
-		case "1.6":
-			javaCoreVersion = JavaCore.VERSION_1_6;
-			break;
-		case "1.7":
-			javaCoreVersion = JavaCore.VERSION_1_7;
-			break;
-		default:
-			javaCoreVersion = JavaCore.VERSION_1_7;
-			break;
-		}
+		String javaCoreVersion = JavaCore.VERSION_1_7;
+			
 		
 		Map<String,String> complierOptions= JavaCore.getDefaultOptions();
 		complierOptions.put(JavaCore.COMPILER_SOURCE, javaCoreVersion);

@@ -61,17 +61,16 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		
 		Label lblProjectPath = new Label(this, SWT.NONE);
 		FormData fd_lblProjectPath = new FormData();
+		fd_lblProjectPath.right = new FormAttachment(0, 176);
 		fd_lblProjectPath.left = new FormAttachment(0, 10);
 		fd_lblProjectPath.top = new FormAttachment(0, 18);
 		lblProjectPath.setLayoutData(fd_lblProjectPath);
-		lblProjectPath.setText("Project version1:");
+		lblProjectPath.setText("Project source version:");
 		
 		pathOfOldProjectText = new Text(this, SWT.BORDER);
-		fd_lblProjectPath.right = new FormAttachment(pathOfOldProjectText, -6);
 		FormData fd_pathOfOldProjectText = new FormData();
 		fd_pathOfOldProjectText.bottom = new FormAttachment(0, 35);
 		fd_pathOfOldProjectText.top = new FormAttachment(0, 13);
-		fd_pathOfOldProjectText.left = new FormAttachment(0, 143);
 		pathOfOldProjectText.setLayoutData(fd_pathOfOldProjectText);
 		
 		Button btnNewButton = new Button(this, SWT.NONE);
@@ -147,9 +146,9 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		fd_btnNewButton.left = new FormAttachment(CompatibilityBtn, -71, SWT.LEFT);
 		fd_btnNewButton.right = new FormAttachment(CompatibilityBtn, -6);
 		FormData fd_CompatibilityBtn = new FormData();
-		fd_CompatibilityBtn.right = new FormAttachment(100, -10);
-		//fd_CompatibilityBtn.right = new FormAttachment(100, -10);
+		fd_CompatibilityBtn.bottom = new FormAttachment(uncompatibilityTableOne, -63);
 		fd_CompatibilityBtn.top = new FormAttachment(0, 11);
+		fd_CompatibilityBtn.right = new FormAttachment(100, -10);
 		CompatibilityBtn.setLayoutData(fd_CompatibilityBtn);
 		CompatibilityBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -189,11 +188,11 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 				if (oldUnCompatibilityMIModels.size()>0) {
 					//TableItem lastItem = new TableItem(uncompatibilityTableOne, SWT.NONE);
 					//lastItem.setText(new String[] {"版本1不兼容的接口个数:",String.valueOf(oldUnCompatibilityMIModels.size())});
-					ResultOneText.setText("Number of incompatible methods in version1:"+String.valueOf(oldUnCompatibilityMIModels.size()));
+					ResultOneText.setText("Number of incompatible methods in source version: "+String.valueOf(oldUnCompatibilityMIModels.size()));
 				}else {
 					//TableItem lastItem = new TableItem(uncompatibilityTableOne, SWT.NONE);
 					//lastItem.setText(new String[] {"版本1程序内部兼容性良好"});
-					ResultOneText.setText("Version1 has good inner compatibility");
+					ResultOneText.setText("Source version has good inner compatibility");
 				}
 				
 				for (UnCompatibilityMIModel unCompatibilityMIModel : newUnCompatibilityMIModels) {
@@ -209,11 +208,11 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 				if (newUnCompatibilityMIModels.size()>0) {
 					//TableItem lastItem = new TableItem(uncompatibilityTableOne, SWT.NONE);
 					//lastItem.setText(new String[] {"版本2不兼容的接口个数:",String.valueOf(newUnCompatibilityMIModels.size())});
-					ResultTwoText.setText("Number of incompatible methods in version2:"+String.valueOf(newUnCompatibilityMIModels.size()));
+					ResultTwoText.setText("Number of incompatible methods in target version: "+String.valueOf(newUnCompatibilityMIModels.size()));
 				}else {
 					//TableItem lastItem = new TableItem(uncompatibilityTableOne, SWT.NONE);
 					//lastItem.setText(new String[] {"版本2程序内部兼容性良好"});
-					ResultTwoText.setText("Version2 has good inner compatibility");
+					ResultTwoText.setText("Target version has good inner compatibility");
 				}
 				
 			}
@@ -221,26 +220,26 @@ public class InnerCompatibilityMutiVersionComposite extends Composite {
 		CompatibilityBtn.setText("Analysis");
 		
 		Label lblProjectPath_1 = new Label(this, SWT.NONE);
-		fd_CompatibilityBtn.bottom = new FormAttachment(lblProjectPath_1, 0, SWT.BOTTOM);
 		FormData fd_lblProjectPath_1 = new FormData();
-		fd_lblProjectPath_1.right = new FormAttachment(lblProjectPath, 0, SWT.RIGHT);
-		fd_lblProjectPath_1.top = new FormAttachment(0, 53);
+		fd_lblProjectPath_1.right = new FormAttachment(0, 176);
 		fd_lblProjectPath_1.left = new FormAttachment(0, 10);
+		fd_lblProjectPath_1.top = new FormAttachment(0, 53);
 		lblProjectPath_1.setLayoutData(fd_lblProjectPath_1);
-		lblProjectPath_1.setText("Project version2:");
+		lblProjectPath_1.setText("Project target version:");
 		
 		pathOfNewProjectText = new Text(this, SWT.BORDER);
+		fd_pathOfOldProjectText.left = new FormAttachment(pathOfNewProjectText, 0, SWT.LEFT);
 		FormData fd_pathOfNewProjectText = new FormData();
-		fd_pathOfNewProjectText.right = new FormAttachment(pathOfOldProjectText, 0, SWT.RIGHT);
+		fd_pathOfNewProjectText.left = new FormAttachment(lblProjectPath_1, 18);
 		fd_pathOfNewProjectText.bottom = new FormAttachment(0, 70);
 		fd_pathOfNewProjectText.top = new FormAttachment(0, 48);
-		fd_pathOfNewProjectText.left = new FormAttachment(0, 143);
 		pathOfNewProjectText.setLayoutData(fd_pathOfNewProjectText);
 		
 		Button btnPath = new Button(this, SWT.NONE);
+		fd_pathOfNewProjectText.right = new FormAttachment(btnPath, -6);
 		fd_btnNewButton.bottom = new FormAttachment(btnPath, -13);
 		FormData fd_btnPath = new FormData();
-		fd_btnPath.left = new FormAttachment(pathOfNewProjectText, 6);
+		fd_btnPath.left = new FormAttachment(CompatibilityBtn, -71, SWT.LEFT);
 		fd_btnPath.right = new FormAttachment(CompatibilityBtn, -6);
 		fd_btnPath.bottom = new FormAttachment(CompatibilityBtn, 0, SWT.BOTTOM);
 		fd_btnPath.top = new FormAttachment(0, 48);

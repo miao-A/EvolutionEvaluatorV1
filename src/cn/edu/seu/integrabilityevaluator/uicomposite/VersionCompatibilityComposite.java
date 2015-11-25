@@ -95,7 +95,7 @@ public class VersionCompatibilityComposite extends Composite {
 		fd_label.left = new FormAttachment(0, 10);
 		fd_label.top = new FormAttachment(0, 24);
 		label.setLayoutData(fd_label);
-		label.setText("Project path1:");
+		label.setText("Project source version:");
 		
 		Label label_1 = new Label(this, SWT.NONE);
 		FormData fd_label_1 = new FormData();
@@ -103,12 +103,12 @@ public class VersionCompatibilityComposite extends Composite {
 		fd_label_1.left = new FormAttachment(0, 10);
 		fd_label_1.top = new FormAttachment(0, 62);
 		label_1.setLayoutData(fd_label_1);
-		label_1.setText("Project path2:");
+		label_1.setText("Project target version:");
 		
 		pathOfOldProjectText = new Text(this, SWT.BORDER);
 		fd_label.right = new FormAttachment(pathOfOldProjectText, -6);
 		FormData fd_oldComponentText = new FormData();
-		fd_oldComponentText.left = new FormAttachment(0, 128);
+		fd_oldComponentText.left = new FormAttachment(0, 188);
 		fd_oldComponentText.top = new FormAttachment(0, 21);
 		pathOfOldProjectText.setLayoutData(fd_oldComponentText);
 		
@@ -587,7 +587,7 @@ public class VersionCompatibilityComposite extends Composite {
 					//TableItem lastItem = new TableItem(changeTypeTable, SWT.NONE);
 					Double double1 = new Double(1.0*(unchangeCount+compatibilityCount)/(unchangeCount+removedCount+compatibilityCount));
 					//lastItem.setText(new String[] {"新版本与旧版本相兼容的接口个数:"+(unchangeCount+compatibilityCount),"旧版本软件的接口数:"+(unchangeCount+removedCount+compatibilityCount),double1.toString()});
-					ResultText.setText("Compatible between version1 and version2:"+double1.toString());
+					ResultText.setText("Compatible between source version and target version:"+double1.toString());
 				}
 				
 				System.out.println(newCount +"\t"+removedCount+"\t"+compatibilityCount+"\t"+unchangeCount);
@@ -601,7 +601,7 @@ public class VersionCompatibilityComposite extends Composite {
 		fd_ResultText.bottom = new FormAttachment(pathOfNewProjectText, 46, SWT.BOTTOM);
 		fd_ResultText.top = new FormAttachment(pathOfNewProjectText, 23);
 		fd_ResultText.left = new FormAttachment(0, 10);
-		fd_ResultText.right = new FormAttachment(0, 467);
+		fd_ResultText.right = new FormAttachment(100, -300);
 		ResultText.setLayoutData(fd_ResultText);
 	}
 	

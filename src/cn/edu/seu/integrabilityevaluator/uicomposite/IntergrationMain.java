@@ -44,7 +44,6 @@ public class IntergrationMain {
 
 		OuterCompatibility outerCompatibility = new OuterCompatibility("D:\\ProjectOfHW\\junit\\junit3.6", null);
 		outerCompatibility.jarCompatibility("D:\\test\\jfreechart-1.0.19.jar", null);
-		System.out.println("test pull");
 
 		//projectParser.runSubstitutabilityOfClassDector();
 		/*String projectPath = "D:\\ProjectOfHW\\jEditor\\jEditor0.2";

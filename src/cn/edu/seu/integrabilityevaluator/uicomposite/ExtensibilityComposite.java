@@ -116,22 +116,22 @@ public class ExtensibilityComposite extends Composite {
 		fd_projectSelectCombo.left = new FormAttachment(lblProject, 34);
 		FormData fd_lblProject = new FormData();
 		fd_lblProject.top = new FormAttachment(0, 26);
-		fd_lblProject.right = new FormAttachment(extensibilityTable, 74);
+		fd_lblProject.right = new FormAttachment(extensibilityTable, 148);
 		fd_lblProject.left = new FormAttachment(extensibilityTable, 0, SWT.LEFT);
 		lblProject.setLayoutData(fd_lblProject);
 		lblProject.setBounds(47, 8, 61, 17);
-		lblProject.setText("Project:");
+		lblProject.setText("Select project:");
 		
 		Label lblVersion = new Label(this, SWT.NONE);
 		fd_versionCombo.right = new FormAttachment(lblVersion, 114, SWT.RIGHT);
 		fd_versionCombo.left = new FormAttachment(lblVersion, 26);
 		FormData fd_lblVersion = new FormData();
-		fd_lblVersion.right = new FormAttachment(projectSelectCombo, 158, SWT.RIGHT);
+		fd_lblVersion.right = new FormAttachment(projectSelectCombo, 216, SWT.RIGHT);
 		fd_lblVersion.left = new FormAttachment(projectSelectCombo, 70);
 		fd_lblVersion.top = new FormAttachment(0, 26);
 		lblVersion.setLayoutData(fd_lblVersion);
 		lblVersion.setBounds(260, 8, 61, 17);
-		lblVersion.setText("Version:");		
+		lblVersion.setText("Project version:");		
 	}
 
 	public void reloadProject(){

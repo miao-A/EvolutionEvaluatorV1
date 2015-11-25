@@ -78,7 +78,7 @@ public class WelcomeDialog extends Dialog {
 	 * Create contents of the dialog.
 	 */
 	private void createContents() {
-		shell = new Shell(getParent(), SWT.SHELL_TRIM);
+		shell = new Shell(SWT.SHELL_TRIM|SWT.PRIMARY_MODAL);
 		shell.setSize(647, 341);
 		shell.setLayout(new FormLayout());
 		

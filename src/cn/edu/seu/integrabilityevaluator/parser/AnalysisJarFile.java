@@ -119,29 +119,28 @@ public class AnalysisJarFile {
                         String ppName = sName.replace("/", ".").replace(".class", "");
                         Class<?> myClass = null;
                         try {
-                        	System.out.println("before load2");
-							myClass = myClassLoader.loadClass(ppName);
-							System.out.println("after load");
-
-							 myClass = myClassLoader.loadClass(ppName);
-
-						} catch (Exception e2) {
+                        	myClass = myClassLoader.loadClass(ppName);
+                        	
+						} catch (ClassNotFoundException e2) {
 							// TODO: handle exception
 							System.out.println("class not found exception");
 				        	e2.printStackTrace();
 						}
                        
-                        //通过getMethods得到类中包含的方法
+                       /* //通过getMethods得到类中包含的方法
                         
 	                     System.out.println("------------------------------------------------");
 	                     System.out.println("sName:"+sName);
 	                     System.out.println("pName:"+pName);
 	                     System.out.println("ppName:"+ppName);
-						
-	                     Method m[] = myClass.getMethods();
+						*/
+						Method m[] = myClass.getMethods();
+	                     
+	                   
 	                     if (m.length>0) {
+	                    	 
 	                    	JarClassModel jarClassModel = new JarClassModel(pName,ppName);
-					
+	                    	 
 	                        for(int i=0; i<m.length; i++){
 	                            String sm = m[i].getName();
 	                            
@@ -169,7 +168,7 @@ public class AnalysisJarFile {
 	                        }
 	                        jarClassModels.add(jarClassModel);
 	                     }
-                        
+	                     
 //	                      System.out.println("------------------------------------------------");
                     }
 

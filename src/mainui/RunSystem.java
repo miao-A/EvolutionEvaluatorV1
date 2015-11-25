@@ -13,7 +13,7 @@ public class RunSystem {
 	public static void main(String[] args) {
 		try {
 			Display display = Display.getDefault();
-			Shell shell = new Shell(display);			
+			Shell shell = new Shell(SWT.SHELL_TRIM |SWT.PRIMARY_MODAL);			
 			WelcomeDialog welcomeDialog = new WelcomeDialog(shell, SWT.NULL);
 			welcomeDialog.open();
 			

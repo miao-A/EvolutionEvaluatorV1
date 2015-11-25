@@ -65,7 +65,7 @@ public class InnerCompatibilityComposite extends Composite {
 		fd_lblProjectPath.top = new FormAttachment(0, 13);
 		fd_lblProjectPath.left = new FormAttachment(0, 10);
 		lblProjectPath.setLayoutData(fd_lblProjectPath);
-		lblProjectPath.setText("Project path:");
+		lblProjectPath.setText("Select project:");
 		
 		Label lblPackagePathOf = new Label(this, SWT.NONE);
 		FormData fd_lblPackagePathOf = new FormData();
@@ -73,7 +73,7 @@ public class InnerCompatibilityComposite extends Composite {
 		fd_lblPackagePathOf.top = new FormAttachment(0, 62);
 		fd_lblPackagePathOf.left = new FormAttachment(0, 10);
 		lblPackagePathOf.setLayoutData(fd_lblPackagePathOf);
-		lblPackagePathOf.setText("Package path:");
+		lblPackagePathOf.setText("Select package:");
 		
 		pathOfProjectText = new Text(this, SWT.BORDER);
 		FormData fd_pathOfProjectText = new FormData();
@@ -207,7 +207,7 @@ public class InnerCompatibilityComposite extends Composite {
 				if (unCompatibilityMIModels.size()>0) {
 					/*TableItem lastItem = new TableItem(uncompatibilityTable, SWT.NONE);
 					lastItem.setText(new String[] {"不兼容的接口个数:",String.valueOf(unCompatibilityMIModels.size())});*/
-					ResultText.setText("No. of incompatible methods:"+String.valueOf(unCompatibilityMIModels.size()));
+					ResultText.setText("Number of incompatible methods:"+String.valueOf(unCompatibilityMIModels.size()));
 				}else {
 /*					TableItem lastItem = new TableItem(uncompatibilityTable, SWT.NONE);
 					lastItem.setText(new String[] {"该包在项目中兼容"});*/

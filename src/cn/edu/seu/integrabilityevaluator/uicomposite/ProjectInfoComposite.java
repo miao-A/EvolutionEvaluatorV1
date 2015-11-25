@@ -185,7 +185,7 @@ public class ProjectInfoComposite extends Composite {
 					projectParser.runDectors();
 					
 					MessageDialog dialog = new MessageDialog(Display.getCurrent().getActiveShell(),//shell窗口
-							"SUCESS",
+							"SUCCESS",
 							null,
 							"Analysis Over! ",
 							//"解析完成",
