@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DBConnector {
 	private String user = "root";
-	private String pwd = "1234";
+	private String pwd = "123456";
 	private String url = "jdbc:mysql://localhost:3306/mysql";
 	private Connection connect=null;
 	protected String dBname = "eosti";

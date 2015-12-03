@@ -98,7 +98,7 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		changeDifftabItem.setText("\u7248\u672C\u53D8\u66F4");*/
 		
 		final CTabItem classChangeDiffTabItem = new CTabItem(tabFolder, SWT.NONE);
-		classChangeDiffTabItem.setText("Version changes information");
+		classChangeDiffTabItem.setText("Cause analysis");
 		
 		final StyledText styledText = new StyledText(tabFolder, SWT.BORDER|SWT.H_SCROLL|SWT.V_SCROLL);
 		classChangeDiffTabItem.setControl(styledText);
@@ -116,7 +116,8 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		version2Combo.setBounds(467, 12, 88, 25);
 		
 		final Label label = new Label(this, SWT.NONE);
-		fd_version1Combo.left = new FormAttachment(label, 22);
+		fd_version1Combo.right = new FormAttachment(label, 94, SWT.RIGHT);
+		fd_version1Combo.left = new FormAttachment(label, 6);
 		FormData fd_label = new FormData();
 		fd_label.right = new FormAttachment(projectSelectCombo, 149, SWT.RIGHT);
 		fd_label.left = new FormAttachment(projectSelectCombo, 6);
@@ -128,9 +129,9 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		final Label label_1 = new Label(this, SWT.NONE);
 		fd_version2Combo.left = new FormAttachment(label_1, 26);
 		FormData fd_label_1 = new FormData();
-		fd_label_1.right = new FormAttachment(version1Combo, 174, SWT.RIGHT);
-		fd_label_1.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
+		fd_label_1.right = new FormAttachment(version1Combo, 190, SWT.RIGHT);
 		fd_label_1.left = new FormAttachment(version1Combo, 50);
+		fd_label_1.top = new FormAttachment(projectSelectCombo, 3, SWT.TOP);
 		label_1.setLayoutData(fd_label_1);
 		label_1.setText("Target version:");
 		label_1.setBounds(400, 15, 61, 17);
@@ -227,10 +228,10 @@ public class SubstitutabilityMutiVersionShowComposite extends Composite {
 		
 		
 		//版本菜单的可见性设置
-		/*label.setVisible(false);
+		label.setVisible(false);
 		label_1.setVisible(false);
 		version1Combo.setVisible(false);
-		version2Combo.setVisible(false);*/
+		version2Combo.setVisible(false);
 		tabFolder.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {

@@ -22,6 +22,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 
 public class IntegrationApp {
@@ -65,6 +66,7 @@ public class IntegrationApp {
 	public void open() {
 		Display display = Display.getDefault();
 		shell = new Shell(SWT.SHELL_TRIM |SWT.PRIMARY_MODAL);
+		shell.setImage(SWTResourceManager.getImage(IntegrationApp.class, "/images/i1.jpg"));
 		shell.setSize(931, 658);
 		shell.setText("Integration Evaluator");
 		shell.setLayout(new FormLayout());

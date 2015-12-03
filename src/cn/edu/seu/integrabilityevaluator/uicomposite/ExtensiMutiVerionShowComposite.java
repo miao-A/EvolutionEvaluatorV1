@@ -95,7 +95,7 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		extenTabItem.setText("Tendency chart of extensibility");
 		final CTabItem extenDiffTabItem = new CTabItem(tabFolder, SWT.NONE);
 		//extenDiffTabItem.setText("\u7248\u672C\u53D8\u66F4\u8BE6\u7EC6\u4FE1\u606F");
-		extenDiffTabItem.setText("Version changes information");
+		extenDiffTabItem.setText("Cause analysis");
 		
 		tabFolder.setSelection(extenTabItem);
 		
@@ -339,10 +339,10 @@ public class ExtensiMutiVerionShowComposite extends Composite {
 		});
 		
 		//版本菜单的可见性设置
-		/*label.setVisible(false);
+		label.setVisible(false);
 		label_1.setVisible(false);
 		version1Combo.setVisible(false);
-		version2Combo.setVisible(false);*/
+		version2Combo.setVisible(false);
 		tabFolder.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
