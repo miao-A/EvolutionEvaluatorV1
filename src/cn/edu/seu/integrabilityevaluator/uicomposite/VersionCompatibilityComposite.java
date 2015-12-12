@@ -356,7 +356,7 @@ public class VersionCompatibilityComposite extends Composite {
 				List<AbstractClassModel> removedType = compatibility.getRemovedTypeModels();	
 				if (removedType.size()!=0) {
 					TableItem uItem = new TableItem(changeTypeTable, SWT.NONE);
-					uItem.setText(new String[] {"deleted classes","------","------","------","------"});
+					uItem.setText(new String[] {"Deleted classes","------","------","------","------"});
 				}
 				for(AbstractClassModel atm : removedType){
 					final TableItem item = new TableItem(changeTypeTable, SWT.NONE);

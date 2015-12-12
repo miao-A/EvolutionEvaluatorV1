@@ -89,7 +89,7 @@ public class ExtensibilityVisitor extends ASTVisitor {
 			classTypeList.get(i);
 			System.out.println("package "+ packageString + " have class "+classNameList.get(i));
 			connector.extendsibilityUpdateStatement(packageString, classNameList.get(0)+"$"+classNameList.get(i), classTypeList.get(i));
-		}
+		}		
 		
 		classNameList.clear();
 		classTypeList.clear();

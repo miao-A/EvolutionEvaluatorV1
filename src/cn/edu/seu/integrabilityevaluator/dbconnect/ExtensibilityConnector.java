@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class ExtensibilityConnector extends DBConnector{
+public class ExtensibilityConnector {
 
 private Connection connect = null;
 private String projectNameString;
@@ -14,23 +14,26 @@ private String versionString;
 
 	
 	public ExtensibilityConnector(String projectName, String version){
-		super();
-		connect = getConnection();
+		//super();
+		
 		this.projectNameString = projectName;
 		this.versionString = version;
 	}
 	
 	public ArrayList<String> getpackageName(){
 		ArrayList<String> list = new ArrayList<String>();
+		Statement stmt = null;
+		ResultSet rs = null;
+		connect = DBConnector.getConnection();
 		try {
 
-			Statement stmt = connect.createStatement();
-			String sql = "SELECT pkgname FROM " + dBname + ".classTypeinfo where ProjName = '"
+			stmt = connect.createStatement();
+			String sql = "SELECT pkgname FROM classTypeinfo where ProjName = '"
 					+ projectNameString 
 					+ "' and verID = '"
 					+ versionString 
 					+"' group by pkgName";
-			ResultSet rs = stmt.executeQuery(sql);
+			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				list.add(rs.getString("pkgName"));
 //				System.out.println(rs.getString("pkgname"));
@@ -38,6 +41,8 @@ private String versionString;
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("extensibility Connector error");
+		}finally{
+			DBConnector.closeFun(rs, stmt, connect);
 		}
 		
 		return list; 
@@ -46,11 +51,11 @@ private String versionString;
 	
 	
 	public void extendsibilityUpdateStatement(String packageName,String className,String classType ){
+		connect = DBConnector.getConnection();
+		Statement stmt = null;
 		try {
-			
-
-			Statement stmt = connect.createStatement();
-			String sql = "INSERT INTO " + dBname + ".classTypeinfo (`pkgName`, `ClassName`, `ProjName` , `VerID`, `ClassType`) VALUES ('"
+			stmt = connect.createStatement();
+			String sql = "INSERT INTO classTypeinfo (`pkgName`, `ClassName`, `ProjName` , `VerID`, `ClassType`) VALUES ('"
 					+ packageName
 					+"','"
 					+className
@@ -66,6 +71,8 @@ private String versionString;
 			} catch (Exception e) {
 				// TODO: handle exception
 				System.out.println("insert failed!");
+			}finally{
+				DBConnector.closeFun(null, stmt, connect);
 			}
 		
 	
@@ -74,13 +81,15 @@ private String versionString;
 
 ///将来改造为接受外部分析输入来源，目前内部用字符串替代了选择	
 	public ArrayList<String> packageExtensibilityRatio(String packageName){
-		
+		connect = DBConnector.getConnection();
 		ArrayList<String> rStrings = new ArrayList<String>();
+		Statement stmt = null;
+		ResultSet rs = null;
 		try {
-			Statement stmt = connect.createStatement();
+			stmt = connect.createStatement();
 			//{"PackageName","concereteClass", "interfaceClass","abstractClass","totalClass","ratio %"};
 			
-			String str = "Select  count(classname) as result FROM " + dBname + ".classTypeinfo where pkgname = '"
+			String str = "Select  count(classname) as result FROM classTypeinfo where pkgname = '"
 			+ packageName 
 			+ "' and VerID = '" 
 			+ versionString + "' and projName = '"
@@ -92,7 +101,7 @@ private String versionString;
 			
 			rStrings.add(packageName);
 			
-			ResultSet rs ;
+			
 			int concreteNum=0;
 			int abstractNum=0;
 			int interfaceNum=0;
@@ -127,18 +136,22 @@ private String versionString;
 			} catch (Exception e) {
 				// TODO: handle exception
 				System.out.println("failed to run extensibility query!");
+			}finally{
+				DBConnector.closeFun(rs, stmt, connect);
 			}
 		return rStrings;
 	}
 	
 public ArrayList<String> packageExtensibilityInfo(String packageName){
-		
+	connect = DBConnector.getConnection();
 		ArrayList<String> rStrings = new ArrayList<String>();
+		ResultSet rs = null;
+		Statement stmt = null;
 		try {
-			Statement stmt = connect.createStatement();
+			stmt = connect.createStatement();
 			//{"PackageName","concereteClass", "interfaceClass","abstractClass","totalClass","ratio %"};
 			
-			String str = "Select  * FROM " + dBname + ".classTypeinfo where pkgname = '"
+			String str = "Select  * FROM classTypeinfo where pkgname = '"
 			+ packageName 
 			+ "' and VerID = '" 
 			+ versionString + "' and projName = '"
@@ -152,7 +165,7 @@ public ArrayList<String> packageExtensibilityInfo(String packageName){
 			
 			//rStrings.add(packageName);
 			
-			ResultSet rs ;
+			
 
 			
 			rs= stmt.executeQuery(str);			
@@ -164,6 +177,8 @@ public ArrayList<String> packageExtensibilityInfo(String packageName){
 			} catch (Exception e) {
 				// TODO: handle exception
 				System.out.println("failed to run extensibility query!");
+			}finally{
+				DBConnector.closeFun(rs, stmt, connect);
 			}
 		return rStrings;
 	}
@@ -171,13 +186,15 @@ public ArrayList<String> packageExtensibilityInfo(String packageName){
 	
 	
 	public ArrayList<String> projectExtensibilityRatio(){
-		
+		connect = DBConnector.getConnection();
 		ArrayList<String> rStrings = new ArrayList<String>();
+		ResultSet rs = null;
+		Statement stmt = null;
 		try {
-			Statement stmt = connect.createStatement();
+			stmt = connect.createStatement();
 			//{"PackageName","concereteClass", "interfaceClass","abstractClass","totalClass","ratio %"};
 			
-			String str = "Select  count(classname) as result FROM " + dBname + ".classTypeinfo where VerID = '"
+			String str = "Select  count(classname) as result FROM classTypeinfo where VerID = '"
 			+ versionString + "' and projName = '"
 					+projectNameString +"'";
 			String concretestr = str +" and classtype = 'concrete'";
@@ -186,7 +203,6 @@ public ArrayList<String> packageExtensibilityInfo(String packageName){
 			
 			rStrings.add("project");
 			
-			ResultSet rs ;
 			int concreteNum=0;
 			int abstractNum=0;
 			int interfaceNum=0;
@@ -226,6 +242,8 @@ public ArrayList<String> packageExtensibilityInfo(String packageName){
 			} catch (Exception e) {
 				// TODO: handle exception
 				System.out.println("failed to run extensibility query!");
+			}finally{
+				DBConnector.closeFun(rs, stmt, connect);
 			}
 		return rStrings;
 	}
@@ -233,16 +251,20 @@ public ArrayList<String> packageExtensibilityInfo(String packageName){
 	
 	
 	public ArrayList<String> selcetStatement(String str,String selcetString){
-		
+		connect = DBConnector.getConnection();
 		ArrayList<String> rStrings = new ArrayList<String>();
+		ResultSet rs = null;
+		Statement stmt = null;
 		try {
-			Statement stmt = connect.createStatement();
-			ResultSet rs = stmt.executeQuery(str);
+			stmt = connect.createStatement();
+			rs = stmt.executeQuery(str);
 			while (rs.next()) {
 				rStrings.add(rs.getString(selcetString));
 				}			
 			} catch (Exception e) {
 				// TODO: handle exception
+			}finally{
+				DBConnector.closeFun(rs, stmt, connect);
 			}
 		return rStrings;
 	}
